@@ -26,8 +26,10 @@ return [
     */
 
     'transformers' => [
+        'GrahamCampbell\Exceptions\Transformers\AuthTransformer',
         'GrahamCampbell\Exceptions\Transformers\CsrfTransformer',
-        'CachetHQ\Cachet\Foundation\Exceptions\Transformers\ExceptionTransformer',
+        'GrahamCampbell\Exceptions\Transformers\ModelTransformer',
+        'CachetHQ\Cachet\Foundation\Exceptions\Transformers\BusTransformer',
     ],
 
     /*
@@ -100,8 +102,9 @@ return [
     */
 
     'levels' => [
-        'Illuminate\Session\TokenMismatchException'                     => 'notice',
+        'Illuminate\Auth\Access\AuthorizationException'                 => 'warning',
         'Illuminate\Database\Eloquent\ModelNotFoundException'           => 'warning',
+        'Illuminate\Session\TokenMismatchException'                     => 'notice',
         'Symfony\Component\HttpKernel\Exception\HttpExceptionInterface' => 'warning',
         'Symfony\Component\Debug\Exception\FatalErrorException'         => 'critical',
         'Exception'                                                     => 'error',

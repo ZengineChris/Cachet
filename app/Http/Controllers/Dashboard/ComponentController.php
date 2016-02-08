@@ -12,12 +12,12 @@
 namespace CachetHQ\Cachet\Http\Controllers\Dashboard;
 
 use AltThree\Validator\ValidationException;
-use CachetHQ\Cachet\Commands\Component\AddComponentCommand;
-use CachetHQ\Cachet\Commands\Component\RemoveComponentCommand;
-use CachetHQ\Cachet\Commands\Component\UpdateComponentCommand;
-use CachetHQ\Cachet\Commands\ComponentGroup\AddComponentGroupCommand;
-use CachetHQ\Cachet\Commands\ComponentGroup\RemoveComponentGroupCommand;
-use CachetHQ\Cachet\Commands\ComponentGroup\UpdateComponentGroupCommand;
+use CachetHQ\Cachet\Bus\Commands\Component\AddComponentCommand;
+use CachetHQ\Cachet\Bus\Commands\Component\RemoveComponentCommand;
+use CachetHQ\Cachet\Bus\Commands\Component\UpdateComponentCommand;
+use CachetHQ\Cachet\Bus\Commands\ComponentGroup\AddComponentGroupCommand;
+use CachetHQ\Cachet\Bus\Commands\ComponentGroup\RemoveComponentGroupCommand;
+use CachetHQ\Cachet\Bus\Commands\ComponentGroup\UpdateComponentGroupCommand;
 use CachetHQ\Cachet\Models\Component;
 use CachetHQ\Cachet\Models\ComponentGroup;
 use CachetHQ\Cachet\Models\Tag;
@@ -276,7 +276,8 @@ class ComponentController extends Controller
         try {
             $group = dispatch(new AddComponentGroupCommand(
                 Binput::get('name'),
-                Binput::get('order', 0)
+                Binput::get('order', 0),
+                Binput::get('collapsed')
             ));
         } catch (ValidationException $e) {
             return Redirect::route('dashboard.components.groups.add')
@@ -302,7 +303,8 @@ class ComponentController extends Controller
             $group = dispatch(new UpdateComponentGroupCommand(
                 $group,
                 Binput::get('name'),
-                Binput::get('order', 0)
+                Binput::get('order', 0),
+                Binput::get('collapsed')
             ));
         } catch (ValidationException $e) {
             return Redirect::route('dashboard.components.groups.edit', ['id' => $group->id])

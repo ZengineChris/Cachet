@@ -11,9 +11,9 @@
 
 namespace CachetHQ\Cachet\Http\Controllers\Api;
 
-use CachetHQ\Cachet\Commands\ComponentGroup\AddComponentGroupCommand;
-use CachetHQ\Cachet\Commands\ComponentGroup\RemoveComponentGroupCommand;
-use CachetHQ\Cachet\Commands\ComponentGroup\UpdateComponentGroupCommand;
+use CachetHQ\Cachet\Bus\Commands\ComponentGroup\AddComponentGroupCommand;
+use CachetHQ\Cachet\Bus\Commands\ComponentGroup\RemoveComponentGroupCommand;
+use CachetHQ\Cachet\Bus\Commands\ComponentGroup\UpdateComponentGroupCommand;
 use CachetHQ\Cachet\Models\ComponentGroup;
 use GrahamCampbell\Binput\Facades\Binput;
 use Illuminate\Database\QueryException;
@@ -56,7 +56,8 @@ class ComponentGroupController extends AbstractApiController
         try {
             $group = dispatch(new AddComponentGroupCommand(
                 Binput::get('name'),
-                Binput::get('order', 0)
+                Binput::get('order', 0),
+                Binput::get('collapsed')
             ));
         } catch (QueryException $e) {
             throw new BadRequestHttpException();
@@ -78,7 +79,8 @@ class ComponentGroupController extends AbstractApiController
             $group = dispatch(new UpdateComponentGroupCommand(
                 $group,
                 Binput::get('name'),
-                Binput::get('order', 0)
+                Binput::get('order', 0),
+                Binput::get('collapsed')
             ));
         } catch (QueryException $e) {
             throw new BadRequestHttpException();

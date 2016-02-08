@@ -27,7 +27,6 @@ class Subscriber extends Model implements HasPresenter
      * @var string[]
      */
     protected $casts = [
-        'id'          => 'int',
         'email'       => 'string',
         'verify_code' => 'string',
         'verified_at' => 'date',
@@ -61,6 +60,16 @@ class Subscriber extends Model implements HasPresenter
                 $user->verify_code = self::generateVerifyCode();
             }
         });
+    }
+
+    /**
+     * A subscriber has many subscriptions.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function subcriptions()
+    {
+        return $this->hasMany(Subscription::class);
     }
 
     /**

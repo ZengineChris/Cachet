@@ -41,7 +41,7 @@ class SubscriberTest extends AbstractApiTestCase
     {
         $this->beUser();
 
-        $this->expectsEvents('CachetHQ\Cachet\Events\Subscriber\SubscriberHasSubscribedEvent');
+        $this->expectsEvents('CachetHQ\Cachet\Bus\Events\Subscriber\SubscriberHasSubscribedEvent');
 
         $this->post('/api/v1/subscribers', [
             'email' => 'james@cachethq.io',
@@ -70,6 +70,15 @@ class SubscriberTest extends AbstractApiTestCase
 
         $subscriber = factory('CachetHQ\Cachet\Models\Subscriber')->create();
         $this->delete("/api/v1/subscribers/{$subscriber->id}");
+        $this->assertResponseStatus(204);
+    }
+
+    public function testDeleteSubscription()
+    {
+        $this->beUser();
+
+        $subscription = factory('CachetHQ\Cachet\Models\Subscription')->create();
+        $this->delete("/api/v1/subscriptions/{$subscription->id}");
         $this->assertResponseStatus(204);
     }
 }

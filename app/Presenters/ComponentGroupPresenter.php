@@ -12,8 +12,11 @@
 namespace CachetHQ\Cachet\Presenters;
 
 use CachetHQ\Cachet\Presenters\Traits\TimestampsTrait;
+use Illuminate\Contracts\Support\Arrayable;
+use McCool\LaravelAutoPresenter\BasePresenter;
+use McCool\LaravelAutoPresenter\Facades\AutoPresenter;
 
-class ComponentGroupPresenter extends AbstractPresenter
+class ComponentGroupPresenter extends BasePresenter implements Arrayable
 {
     use TimestampsTrait;
 
@@ -25,7 +28,7 @@ class ComponentGroupPresenter extends AbstractPresenter
     public function lowest_status()
     {
         if ($component = $this->wrappedObject->enabled_components_lowest()->first()) {
-            return $component->status;
+            return AutoPresenter::decorate($component)->status;
         }
     }
 
@@ -37,7 +40,7 @@ class ComponentGroupPresenter extends AbstractPresenter
     public function lowest_human_status()
     {
         if ($component = $this->wrappedObject->enabled_components_lowest()->first()) {
-            return $component->human_status;
+            return AutoPresenter::decorate($component)->human_status;
         }
     }
 
@@ -49,8 +52,18 @@ class ComponentGroupPresenter extends AbstractPresenter
     public function lowest_status_color()
     {
         if ($component = $this->wrappedObject->enabled_components_lowest()->first()) {
-            return $component->status_color;
+            return AutoPresenter::decorate($component)->status_color;
         }
+    }
+
+    /**
+     * Determine the class for collapsed/uncollapsed groups.
+     *
+     * @return string
+     */
+    public function collapse_class()
+    {
+        return $this->wrappedObject->collapsed ? 'ion-ios-plus-outline' : 'ion-ios-minus-outline';
     }
 
     /**

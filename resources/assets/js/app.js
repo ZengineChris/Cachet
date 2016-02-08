@@ -39,11 +39,9 @@ $(function() {
     // Mock the DELETE form requests.
     $('[data-method]').not(".disabled").append(function() {
         var methodForm = "\n";
-        methodForm    += "<form action='" + $(this).attr('href') + "' method='POST' style='display:none'>\n";
-        methodForm    += " <input type='hidden' name='_method' value='" + $(this).attr('data-method') + "'>\n";
-        if ($(this).attr('data-token')) {
-            methodForm += "<input type='hidden' name='_token' value='" + $(this).attr('data-token') + "'>\n";
-        }
+        methodForm += "<form action='" + $(this).attr('href') + "' method='POST' style='display:none'>\n";
+        methodForm += "<input type='hidden' name='_method' value='" + $(this).attr('data-method') + "'>\n";
+        methodForm += "<input type='hidden' name='_token' value='" + $('meta[name=token]').attr('content') + "'>\n";
         methodForm += "</form>\n";
         return methodForm;
     })
@@ -252,8 +250,8 @@ $(function() {
                 url: '/dashboard/api/incidents/templates',
                 success: function(tpl) {
                     var $form = $('form[role=form]');
-                    $form.find('input[name=incident\\[name\\]]').val(tpl.name);
-                    $form.find('textarea[name=incident\\[message\\]]').val(tpl.template);
+                    $form.find('input[name=name]').val(tpl.name);
+                    $form.find('textarea[name=message]').val(tpl.template);
                 },
                 error: function() {
                     (new Cachet.Notifier()).notify('There was an error finding that template.');
@@ -376,6 +374,23 @@ $(function() {
             }
         });
     }
+
+    // Open a modal.
+    $('#subscribe-modal')
+        .on('show.bs.modal', function (event) {
+            var $button = $(event.relatedTarget);
+            var $modal = $(this);
+            $modal.find('#subscribe-modal-id').val($button.data('component-id'));
+        })
+        .on('hidden.bs.modal', function (event) {
+            var $modal = $(this);
+            $modal.find('#subscribe-modal-id').val('');
+        });
+
+    // Focus on any modals.
+    $('.modal').on('shown.bs.modal', function () {
+        $(this).find('input[type=text]').focus();
+    });
 });
 
 function askConfirmation(callback) {
