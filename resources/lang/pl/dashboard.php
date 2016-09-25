@@ -22,17 +22,17 @@ return [
         'incident-templates'       => 'Vorfall Vorlagen',
         'add'                      => [
             'title'   => 'Vorfall hinzufügen',
-            'success' => 'Vorfall hinzugefügt.',
-            'failure' => 'Etwas ist mit dem Vorfall schiefgelaufen.',
+            'success' => 'Dodano zdarzenie.',
+            'failure' => 'Wystąpił błąd podczas dodawania wydarzenia, proszę spróbować ponownie.',
         ],
         'edit' => [
             'title'   => 'Vorfall bearbeiten',
             'success' => 'Vorfall aktualisiert.',
-            'failure' => 'Etwas ist mit dem Vorfall schiefgelaufen.',
+            'failure' => 'Wystąpił błąd podczas edytowania wydarzenia, proszę spróbować ponownie.',
         ],
         'delete' => [
-            'success' => 'The incident has been deleted and will not show on your status page.',
-            'failure' => 'The incident could not be deleted. Please try again.',
+            'success' => 'Wydarzenie zostało usunięte i nie będzie widoczne na stronie statusu.',
+            'failure' => 'Wydarzenie nie mogło zostać usunięte, proszę spróbować ponownie.',
         ],
 
         // Incident templates
@@ -40,18 +40,18 @@ return [
             'title' => 'Vorfall Vorlagen',
             'add'   => [
                 'title'   => 'Vorfallvorlage erstellen',
-                'message' => 'You should add an Incident Template.',
-                'success' => 'Vorlage erstellt.',
-                'failure' => 'Etwas ist mit der Vorfallvorlage schiefgelaufen.',
+                'message' => 'Powinieneś dodać szablon wydarzenia.',
+                'success' => 'Twój nowy szablon wydarzenia został utworzony.',
+                'failure' => 'Coś poszło nie tak z szablonem wydarzenia.',
             ],
             'edit' => [
                 'title'   => 'Vorlage bearbeiten',
-                'success' => 'Vorlage aktualisiert!',
-                'failure' => 'Etwas ist mit dem Updaten der Vorfallvorlage schiefgelaufen',
+                'success' => 'Szablon wydarzenia został zaktualizowany.',
+                'failure' => 'Coś poszło nie tak podczas aktualizacji szablonu wydarzenia',
             ],
             'delete' => [
-                'success' => 'The tmplate has been deleted.',
-                'failure' => 'The template could not be deleted. Please try again.',
+                'success' => 'Szablon wydarzenia został usunięty.',
+                'failure' => 'Szablon wydarzenia nie mógł zostać usunięty, proszę spróbować ponownie.',
             ],
         ],
     ],
@@ -59,21 +59,21 @@ return [
     // Incident Maintenance
     'schedule' => [
         'schedule'     => 'Geplante Wartungen',
-        'logged'       => '{0} There are no schedules, good work.|You have logged one schedule.|You have reported <strong>:count</strong> schedules.',
+        'logged'       => '{0} Nie ma żadnych harmonogramów, dobra robota.|Posiadasz jeden harmonogram.|Zgłoszono <strong>:count</strong> harmonogramów.',
         'scheduled_at' => 'Geplant am :timestamp',
         'add'          => [
-            'title'   => 'Planmäßige Wartung hinzufügen',
-            'success' => 'Zeitplan hinzugefügt.',
-            'failure' => 'Etwas ist mit dem hinzufügen des Zeitplanes schiefgelaufen.',
+            'title'   => 'Zaplanuj prace konserwatorskie',
+            'success' => 'Dodano harmonogram.',
+            'failure' => 'Coś poszło nie tak podczas planowania, proszę spróbować ponownie.',
         ],
         'edit' => [
-            'title'   => 'Planmäßige Wartung bearbeiten',
-            'success' => 'Zeitplan wurde aktualisiert!',
-            'failure' => 'Etwas ist mit dem Bearbeiten des Zeitplanes schiefgelaufen.',
+            'title'   => 'Edytuj prace konserwatorskie',
+            'success' => 'Harmonogram został zaktualizowany!',
+            'failure' => 'Coś poszło nie tak podczas edytowania harmonogramu, proszę spróbować ponownie.',
         ],
         'delete' => [
-            'success' => 'Der Zeitplan wurde gelöscht und wird nicht auf Ihrer Statusseite angezeigt.',
-            'failure' => 'Der Zeitplan konnte nicht gelöscht werden. Bitte versuchen Sie es erneut.',
+            'success' => 'Zaplanowane prace konserwatorskie zostały usunięte i nie będą wyświetlane na stronie statusu.',
+            'failure' => 'Zaplanowane prace konserwatorskie nie mogły zostać usunięte, proszę spróbować ponownie.',
         ],
     ],
 
@@ -85,17 +85,17 @@ return [
         'add'                => [
             'title'   => 'Komponente hinzufügen',
             'message' => 'Sie sollten eine Komponente erstellen.',
-            'success' => 'Komponente erstellt.',
-            'failure' => 'Beim Erstellen der Komponente ist etwas schiefgegangen.',
+            'success' => 'Utworzono komponent.',
+            'failure' => 'Coś poszło nie tak z komponentem, proszę spróbować ponownie.',
         ],
         'edit' => [
             'title'   => 'Komponente bearbeiten',
-            'success' => 'Komponente aktualisiert.',
-            'failure' => 'Beim Erstellen der Komponente ist etwas schiefgegangen.',
+            'success' => 'Zaktualizowano komponent.',
+            'failure' => 'Coś poszło nie tak z komponentem, proszę spróbować ponownie.',
         ],
         'delete' => [
-            'success' => 'Component deleted.',
-            'failure' => 'The Component could not be deleted. Please try again.',
+            'success' => 'Komponent został usunięty!',
+            'failure' => 'Komponent nie mógł zostać usunięty, proszę spróbować ponownie.',
         ],
 
         // Component groups
@@ -104,17 +104,17 @@ return [
             'no_components' => 'Sie sollten eine Komponentengruppe hinzufügen.',
             'add'           => [
                 'title'   => 'Eine Komponentengruppe hinzufügen',
-                'success' => 'Komponentengruppe hinzugefügt.',
-                'failure' => 'Mit der Komponentengruppe ist etwas schiefgegangen.',
+                'success' => 'Dodano grupę komponentów.',
+                'failure' => 'Coś poszło nie tak z grupą komponentów, proszę spróbować ponownie.',
             ],
             'edit' => [
                 'title'   => 'Komponentengruppe bearbeiten',
-                'success' => 'Komponentengruppe aktualisiert.',
-                'failure' => 'Mit der Komponentengruppe ist etwas schiefgegangen.',
+                'success' => 'Zaktualizowano grupę komponentów.',
+                'failure' => 'Coś poszło nie tak z grupą komponentów, proszę spróbować ponownie.',
             ],
             'delete' => [
-                'success' => 'Component Group deleted.',
-                'failure' => 'The Component Group could not be deleted. Please try again.',
+                'success' => 'Grupa komponentów została usunięta!',
+                'failure' => 'Grupa komponentów nie mogła zostać usunięta, proszę spróbować ponownie.',
             ],
         ],
     ],
@@ -124,35 +124,38 @@ return [
         'metrics' => 'Metriken',
         'add'     => [
             'title'   => 'Metrik erstellen',
-            'message' => 'You should add a Metric.',
-            'success' => 'Metrik erstellt.',
-            'failure' => 'Mit der Metrik ist etwas schiefgegangen.',
+            'message' => 'Powinieneś dodać metrykę.',
+            'success' => 'Utworzono metrykę.',
+            'failure' => 'Coś poszło nie tak z metryką, proszę próbować ponownie.',
         ],
         'edit' => [
             'title'   => 'Metrik bearbeiten',
-            'success' => 'Metrik aktualisiert.',
-            'failure' => 'Mit der Metrik ist etwas schiefgegangen.',
+            'success' => 'Zaktualizowano metrykę.',
+            'failure' => 'Coś poszło nie tak z metryką, proszę próbować ponownie.',
         ],
         'delete' => [
-            'success' => 'The metric has been deleted and will not show on your status page.',
-            'failure' => 'The metric could not be deleted. Please try again.',
+            'success' => 'Metryka została usunięta i nie będzie wyświetlana na stronie statusu.',
+            'failure' => 'Metryka nie mogła zostać usunięta, proszę spróbować ponownie.',
         ],
     ],
     // Subscribers
     'subscribers' => [
-        'subscribers'  => 'Abonnenten',
-        'description'  => 'Abonnenten erhalten E-Mail Updates wenn Vorfälle erstellt werden.',
-        'verified'     => 'Verifiziert',
-        'not_verified' => 'Nicht verifiziert',
-        'add'          => [
+        'subscribers'      => 'Abonnenten',
+        'description'      => 'Subskrybenci będą otrzymywać powiadomienia, gdy wydarzenia zostaną utworzone lub komponenty zaktualizowane.',
+        'verified'         => 'Verifiziert',
+        'not_verified'     => 'Nicht verifiziert',
+        'subscriber'       => ':email, subskrybowany :data',
+        'no_subscriptions' => 'Zapisano do wszystkich aktualizacji',
+        'add'              => [
             'title'   => 'Einen neuen Abonnenten hinzufügen',
             'success' => 'Abonnent hinzugefügt.',
-            'failure' => 'Beim Erstellen der Komponente ist etwas schiefgegangen.',
+            'failure' => 'Coś poszło nie tak podczas dodawania subskrybenta, proszę spróbować ponownie.',
+            'help'    => 'Wpisz każdego subskrybenta w nowym wierszu.',
         ],
         'edit' => [
             'title'   => 'Abonnent aktualisieren',
             'success' => 'Abonnent aktualisiert.',
-            'failure' => 'Bei der Aktualisierung ging etwas schief.',
+            'failure' => 'Coś poszło nie tak podczas edytowania subskrybenta, proszę spróbować ponownie.',
         ],
     ],
 
@@ -164,22 +167,22 @@ return [
         'description' => 'Teammitglieder werden die M&ouml;glichkeit haben, Komponente sowie Vorf&auml;lle hinzuzuf&uuml;gen und zu ver&auml;ndern.',
         'add'         => [
             'title'   => 'Neues Teammitglied hinzufügen',
-            'success' => 'Teammitglied hinzugefügt.',
-            'failure' => 'Mit der Komponente ist etwas schiefgegangen.',
+            'success' => 'Dodano członka zespołu.',
+            'failure' => 'Członek zespołu nie mógł zostać dodany, proszę spróbować ponownie.',
         ],
         'edit' => [
             'title'   => 'Profil aktualisieren',
-            'success' => 'Profil aktualisiert.',
-            'failure' => 'Bei der Aktualisierung ging etwas schief.',
+            'success' => 'Zaktualizowano profil.',
+            'failure' => 'Coś poszło nie tak podczas aktualizacji profilu, proszę spróbować ponownie.',
         ],
         'delete' => [
             'success' => 'Benutzer aktualisiert.',
-            'failure' => 'Bei dem Löschen dieses Benutzers ging etwas schief.',
+            'failure' => 'Członek zespołu nie mógł zostać dodany, proszę spróbować ponownie.',
         ],
         'invite' => [
-            'title'   => 'Invite a New Team Member',
-            'success' => 'The users invited.',
-            'failure' => 'Something went wrong with the invite.',
+            'title'   => 'Zaproś nowego członka zespołu',
+            'success' => 'Zaproszenie zostało wysłane',
+            'failure' => 'Zaproszenie nie mogło zostać wysłane, proszę spróbować ponownie.',
         ],
     ],
 
@@ -197,6 +200,11 @@ return [
         'localization' => [
             'localization' => 'Localization',
         ],
+        'customization' => [
+            'customization' => 'Dostosowywanie',
+            'header'        => 'Niestandardowy nagłówek HTML',
+            'footer'        => 'Niestandardowa stopka HTML',
+        ],
         'security' => [
             'security'   => 'Sicherheit',
             'two-factor' => 'Nutzer ohne Zwei-Faktor-Authentifizierung',
@@ -210,6 +218,14 @@ return [
         'edit' => [
             'success' => 'Einstellungen gespeichert.',
             'failure' => 'Einstellungen konnten nicht gespeichert werden.',
+        ],
+        'credits' => [
+            'credits'       => 'Credits',
+            'contributors'  => 'Contributors',
+            'license'       => 'Cachet is a BSD-3-licensed open source project, released by <a href="https://alt-three.com/?utm_source=cachet&utm_medium=credits&utm_campaign=Cachet%20Credit%20Dashboard" target="_blank">Alt Three Services Limited</a>.',
+            'backers-title' => 'Backers & Sponsors',
+            'backers'       => 'If you\'d like to support future development, check out the <a href="https://patreon.com/jbrooksuk" target="_blank">Cachet Patreon</a> campaign.',
+            'thank-you'     => 'Thank you to each and every one of the :count contributors.',
         ],
     ],
 
@@ -233,11 +249,19 @@ return [
         'whoops'        => 'Hoppla.',
     ],
 
+    // Widgets
+    'widgets' => [
+        'support'          => 'Support Cachet',
+        'support_subtitle' => 'Check out our <strong><a href="https://patreon.com/jbrooksuk" target="_blank">Patreon</a></strong> page!',
+        'news'             => 'Latest News',
+        'news_subtitle'    => 'Get the latest updates',
+    ],
+
     // Welcome modal
     'welcome' => [
-        'welcome' => 'Welcome to your status page!',
+        'welcome' => 'Witamy w nowym statusie strony!',
         'message' => 'Ihre Statusseite ist fast fertig! Vielleicht möchten Sie diese zusätzlichen Einstellungen konfigurieren',
-        'close'   => 'Gehe einfach direkt zu meinem Dashboard',
+        'close'   => 'Przejdź prosto do panelu głównego',
         'steps'   => [
             'component'  => 'Komponenten erstellen',
             'incident'   => 'Vorfälle erstellen',

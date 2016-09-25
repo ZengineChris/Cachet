@@ -12,27 +12,28 @@
 namespace CachetHQ\Cachet\Composers;
 
 use CachetHQ\Cachet\Models\Metric;
-use CachetHQ\Cachet\Repositories\Metric\MetricRepository;
+use Illuminate\Contracts\Config\Repository;
 use Illuminate\Contracts\View\View;
-use Illuminate\Support\Facades\Config;
 
 class MetricsComposer
 {
     /**
-     * @var \CachetHQ\Cachet\Repositories\Metric\MetricRepository
+     * The illuminate config instance.
+     *
+     * @var \Illuminate\Contracts\Config\Repository
      */
-    protected $metricRepository;
+    protected $config;
 
     /**
-     * Construct a new home controller instance.
+     * Create a new metrics composer.
      *
-     * @param \CachetHQ\Cachet\Repositories\Metric\MetricRepository $metricRepository
+     * @param \Illuminate\Contracts\Config\Repository $config
      *
      * @return void
      */
-    public function __construct(MetricRepository $metricRepository)
+    public function __construct(Repository $config)
     {
-        $this->metricRepository = $metricRepository;
+        $this->config = $config;
     }
 
     /**
@@ -45,22 +46,11 @@ class MetricsComposer
     public function compose(View $view)
     {
         $metrics = null;
-        $metricData = [];
-        if ($displayMetrics = Config::get('setting.display_graphs')) {
-            $metrics = Metric::where('display_chart', 1)->orderBy('id')->get();
-
-            $metrics->map(function ($metric) use (&$metricData) {
-                $metricData[$metric->id] = [
-                    'last_hour' => $this->metricRepository->listPointsLastHour($metric),
-                    'today'     => $this->metricRepository->listPointsToday($metric),
-                    'week'      => $this->metricRepository->listPointsForWeek($metric),
-                    'month'     => $this->metricRepository->listPointsForMonth($metric),
-                ];
-            });
+        if ($displayMetrics = $this->config->get('setting.display_graphs')) {
+            $metrics = Metric::displayable()->orderBy('order')->orderBy('id')->get();
         }
 
         $view->withDisplayMetrics($displayMetrics)
-            ->withMetrics($metrics)
-            ->withMetricData($metricData);
+            ->withMetrics($metrics);
     }
 }

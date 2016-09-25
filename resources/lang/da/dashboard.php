@@ -22,17 +22,17 @@ return [
         'incident-templates'       => 'Incident Templates',
         'add'                      => [
             'title'   => 'Opret hændelse',
-            'success' => 'Hændelse oprettet.',
-            'failure' => 'Noget gik galt i oprettelsen af hændelsen.',
+            'success' => 'Hændelse tilføjet.',
+            'failure' => 'Der opstod en fejl i forsøget på at tilføje hændelsen. Prøv venligst igen.',
         ],
         'edit' => [
             'title'   => 'Redigér hændelse',
             'success' => 'Hændelse opdateret.',
-            'failure' => 'Noget gik galt med hændelsen.',
+            'failure' => 'Der opstod en fejl under forsøget på at redigere hændelsen. Prøv venligst igen.',
         ],
         'delete' => [
-            'success' => 'The incident has been deleted and will not show on your status page.',
-            'failure' => 'The incident could not be deleted. Please try again.',
+            'success' => 'Hændelsen er blevet slettet og vil ikke blive vist på din statusside.',
+            'failure' => 'Hændelsen kunne ikke slettes. Prøv venligst igen.',
         ],
 
         // Incident templates
@@ -40,18 +40,18 @@ return [
             'title' => 'Hændelses skabeloner',
             'add'   => [
                 'title'   => 'Opret hændelses skabelon',
-                'message' => 'You should add an Incident Template.',
-                'success' => 'Template created.',
-                'failure' => 'Noget gik galt i oprettelsen af skabelonen.',
+                'message' => 'Du bør tilføje en hændelses skabelon.',
+                'success' => 'Din nye hændelses skabelon er blevet oprettet.',
+                'failure' => 'En fejl er opstået med hændelses skabelonen.',
             ],
             'edit' => [
                 'title'   => 'Redigér skabelon',
-                'success' => 'Skabelonen opdateret!',
-                'failure' => 'Noget gik galt under opdateringen af skabelonen',
+                'success' => 'Hændelses skabelonen er blevet opdateret.',
+                'failure' => 'Der opstod en fejl under forsøget på at opdatere hændelses skabelonen',
             ],
             'delete' => [
-                'success' => 'The tmplate has been deleted.',
-                'failure' => 'The template could not be deleted. Please try again.',
+                'success' => 'Hændelses skabelonen er blevet slettet.',
+                'failure' => 'Hændelses skabelonen kunne ikke slettes. Prøv venligst igen.',
             ],
         ],
     ],
@@ -59,21 +59,21 @@ return [
     // Incident Maintenance
     'schedule' => [
         'schedule'     => 'Planlagt vedligeholdelse',
-        'logged'       => '{0} There are no schedules, good work.|You have logged one schedule.|You have reported <strong>:count</strong> schedules.',
+        'logged'       => '{0} Der er intet planlagt.|Der er 1 planlagt.|Der er <strong>:count</strong> planlagte.',
         'scheduled_at' => 'Planlagt til :timestamp',
         'add'          => [
-            'title'   => 'Tilføj planlagt nedetid',
-            'success' => 'Nedetid tilføjet.',
-            'failure' => 'Noget gik galt med oprettelsen.',
+            'title'   => 'Tilføj planlagt vedligeholdelse',
+            'success' => 'Planlagt vedligeholdelse tilføjet.',
+            'failure' => 'Noget gik galt under forsøget på at tilføje planlagt vedligeholdelse. Prøv venligst igen.',
         ],
         'edit' => [
-            'title'   => 'Redigér planlagt nedetid',
-            'success' => 'Nedetid opreteret!',
-            'failure' => 'Noget gik galt under opdateringen.',
+            'title'   => 'Rediger planlagt vedligeholdelse',
+            'success' => 'Planlagt vedligeholdelse er blevet opdateret!',
+            'failure' => 'Noget gik galt under forsøget på at opdatere planlagt vedligeholdelse. Prøv venligst igen.',
         ],
         'delete' => [
-            'success' => 'Planlagt nedetid fjernet og vil ikke længere blive vist.',
-            'failure' => 'Planlagt nedetid kunne ikke slettes, prøv igen senere.',
+            'success' => 'Planlagt vedligeholdelse er blevet slette og vil ikke længere blive vist på din status side.',
+            'failure' => 'Den planlagt vedligeholdelse kunne ikke slettes. Prøv venligst igen.',
         ],
     ],
 
@@ -85,17 +85,17 @@ return [
         'add'                => [
             'title'   => 'Tilføj komponent',
             'message' => 'Du bør tilføje en komponent.',
-            'success' => 'Komponent tilføjet.',
-            'failure' => 'Noget gik galt med oprettelsen.',
+            'success' => 'Komponent oprettet.',
+            'failure' => 'Noget gik galt med komponentet. Prøv venligst igen.',
         ],
         'edit' => [
             'title'   => 'Redigér komponent',
-            'success' => 'Komponent opdteret.',
-            'failure' => 'Noget gik galt med komponenten.',
+            'success' => 'Komponent opdateret.',
+            'failure' => 'Noget gik galt med komponentet. Prøv venligst igen.',
         ],
         'delete' => [
-            'success' => 'Component deleted.',
-            'failure' => 'The Component could not be deleted. Please try again.',
+            'success' => 'Komponentet er blevet slettet!',
+            'failure' => 'Komponentet kunne ikke slettes. Prøv venligst igen.',
         ],
 
         // Component groups
@@ -104,17 +104,17 @@ return [
             'no_components' => 'You should add a component group.',
             'add'           => [
                 'title'   => 'Tilføj komponentgruppe',
-                'success' => 'Komponentgruppe tilføjet.',
-                'failure' => 'Noget gik galt med oprettelsen.',
+                'success' => 'Komponent gruppe tilføjet.',
+                'failure' => 'Noget gik galt med komponentet gruppen. Prøv venligst igen.',
             ],
             'edit' => [
                 'title'   => 'Redigér komponentgruppe',
-                'success' => 'Gruppe opdateret.',
-                'failure' => 'Noget gik galt med komponentgruppen.',
+                'success' => 'Komponent gruppe opdateret.',
+                'failure' => 'Noget gik galt med komponentet gruppen. Prøv venligst igen.',
             ],
             'delete' => [
-                'success' => 'Component Group deleted.',
-                'failure' => 'The Component Group could not be deleted. Please try again.',
+                'success' => 'Komponent gruppen er blevet slettet!',
+                'failure' => 'Komponent gruppen kunne ikke slettes. Prøv venligst igen.',
             ],
         ],
     ],
@@ -124,35 +124,38 @@ return [
         'metrics' => 'Grafer',
         'add'     => [
             'title'   => 'Opret graf',
-            'message' => 'You should add a Metric.',
+            'message' => 'Du bør tilføje en graf.',
             'success' => 'Graf oprettet.',
-            'failure' => 'Noget gik galt med oprettelsen.',
+            'failure' => 'Noget gik galt med graffen. Prøv venligst igen.',
         ],
         'edit' => [
             'title'   => 'Redigér graf',
             'success' => 'Graf opdateret.',
-            'failure' => 'Noget gik galt med målestokken.',
+            'failure' => 'Noget gik galt med graffen. Prøv venligst igen.',
         ],
         'delete' => [
-            'success' => 'The metric has been deleted and will not show on your status page.',
-            'failure' => 'The metric could not be deleted. Please try again.',
+            'success' => 'Grafen er blevet slette og vil ikke længere blive vist på din status side.',
+            'failure' => 'Grafen kunne ikke slettes. Prøv venligst igen.',
         ],
     ],
     // Subscribers
     'subscribers' => [
-        'subscribers'  => 'Subscribers',
-        'description'  => 'Abonnenter vil modtage notifikationer når hændelser oprettes.',
-        'verified'     => 'Bekræftet',
-        'not_verified' => 'Ej bekræftet',
-        'add'          => [
+        'subscribers'      => 'Subscribers',
+        'description'      => 'Abonnenter vil modtage notifikationer når hændelser oprettes eller komponenter opdateres.',
+        'verified'         => 'Bekræftet',
+        'not_verified'     => 'Ej bekræftet',
+        'subscriber'       => ':email, abonnerede :date',
+        'no_subscriptions' => 'Abonnere på alle opdateringer',
+        'add'              => [
             'title'   => 'Tilføj abonnent',
             'success' => 'Subscriber added.',
-            'failure' => 'Noget gik galt med oprettelsen.',
+            'failure' => 'Noget gik galt under forsøget på at tilføje en abonnent. Prøv venligst igen.',
+            'help'    => 'Angiv hver abonnent på en ny linje.',
         ],
         'edit' => [
             'title'   => 'Redigér abonnent',
             'success' => 'Subscriber updated.',
-            'failure' => 'Something went wrong when updating.',
+            'failure' => 'Noget gik galt under forsøget på at redigere abonnenten. Prøv venligst igen.',
         ],
     ],
 
@@ -165,21 +168,21 @@ return [
         'add'         => [
             'title'   => 'Tilføj bruger',
             'success' => 'Bruger tilføjet.',
-            'failure' => 'Noget gik galt med oprettelsen.',
+            'failure' => 'Brugeren kunne ikke tilføjes. Prøv venligst igen.',
         ],
         'edit' => [
             'title'   => 'Redigér profil',
-            'success' => 'Profile updated.',
-            'failure' => 'Something went wrong when updating.',
+            'success' => 'Profil opdateret.',
+            'failure' => 'Noget gik galt under forsøget på at opdatere profilen. Prøv venligst igen.',
         ],
         'delete' => [
             'success' => 'Slet bruger.',
-            'failure' => 'Noget gik galt under sletningen af brugeren.',
+            'failure' => 'Brugeren kunne ikke tilføjes. Prøv venligst igen.',
         ],
         'invite' => [
             'title'   => 'Invite a New Team Member',
             'success' => 'The users invited.',
-            'failure' => 'Something went wrong with the invite.',
+            'failure' => 'Invitationen kunne ikke sendes. Prøv venligst igen.',
         ],
     ],
 
@@ -197,54 +200,75 @@ return [
         'localization' => [
             'localization' => 'Localization',
         ],
+        'customization' => [
+            'customization' => 'Tilpasning',
+            'header'        => 'Brugerdefineret header HTML',
+            'footer'        => 'Brugerdefineret footer html',
+        ],
         'security' => [
-            'security'   => 'Security',
-            'two-factor' => 'Brugere uden two-factor login',
+            'security'   => 'Sikkerhed',
+            'two-factor' => 'Brugere uden totrinsbekræftelse',
         ],
         'stylesheet' => [
             'stylesheet' => 'Stylesheet',
         ],
         'theme' => [
-            'theme' => 'Theme',
+            'theme' => 'Tema',
         ],
         'edit' => [
             'success' => 'Indstillingerne er gemt.',
-            'failure' => 'Settings could not be saved.',
+            'failure' => 'Indstillingerne kunne ikke gemmes.',
+        ],
+        'credits' => [
+            'credits'       => 'Credits',
+            'contributors'  => 'Contributors',
+            'license'       => 'Cachet is a BSD-3-licensed open source project, released by <a href="https://alt-three.com/?utm_source=cachet&utm_medium=credits&utm_campaign=Cachet%20Credit%20Dashboard" target="_blank">Alt Three Services Limited</a>.',
+            'backers-title' => 'Backers & Sponsors',
+            'backers'       => 'If you\'d like to support future development, check out the <a href="https://patreon.com/jbrooksuk" target="_blank">Cachet Patreon</a> campaign.',
+            'thank-you'     => 'Thank you to each and every one of the :count contributors.',
         ],
     ],
 
     // Login
     'login' => [
-        'login'      => 'Login',
-        'logged_in'  => 'You\'re logged in.',
-        'welcome'    => 'Velkommen tilbage',
-        'two-factor' => 'Indtast venligst din log ind nøgle',
+        'login'      => 'Log ind',
+        'logged_in'  => 'Du er logget ind.',
+        'welcome'    => 'Velkommen tilbage!',
+        'two-factor' => 'Indtast venligst din totrins bekræftelses nøgle.',
     ],
 
     // Sidebar footer
-    'help'        => 'Help',
-    'status_page' => 'Status Siden',
-    'logout'      => 'Logout',
+    'help'        => 'Hjælp',
+    'status_page' => 'Status side',
+    'logout'      => 'Log ud',
 
     // Notifications
     'notifications' => [
-        'notifications' => 'Notifications',
-        'awesome'       => 'Fedt!',
-        'whoops'        => 'Whoops!',
+        'notifications' => 'Notifikationer',
+        'awesome'       => 'Fantastisk.',
+        'whoops'        => 'Hov.',
+    ],
+
+    // Widgets
+    'widgets' => [
+        'support'          => 'Support Cachet',
+        'support_subtitle' => 'Check out our <strong><a href="https://patreon.com/jbrooksuk" target="_blank">Patreon</a></strong> page!',
+        'news'             => 'Latest News',
+        'news_subtitle'    => 'Get the latest updates',
     ],
 
     // Welcome modal
     'welcome' => [
-        'welcome' => 'Welcome to your status page!',
-        'message' => 'Din statusside er nærmest klar! Måske du skulle gennemgå disse ekstra indstillinger',
+        'welcome' => 'Velkommen til din statusside!',
+        'message' => 'Din status side er næsten klar! Du ønsker måske at konfigurere disse ekstra indstillinger',
         'close'   => 'Til oversigtssiden tak.',
         'steps'   => [
             'component'  => 'Opret Komponent',
-            'incident'   => 'Opret hændelse',
-            'customize'  => 'Customize',
+            'incident'   => 'Opret hændelser',
+            'customize'  => 'Tilpas',
             'team'       => 'Tilføj bruger',
             'api'        => 'Generer API nøgle',
-            'two-factor' => 'Two Factor Log ind',
+            'two-factor' => 'Totrinsbekræftelse',
         ],
     ],
 

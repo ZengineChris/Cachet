@@ -27,13 +27,14 @@ return [
 
     // Login form fields
     'login' => [
-        'login'         => 'Username or Email',
+        'login'         => '用户名或者邮箱地址',
         'email'         => '电子邮箱',
         'password'      => '密码',
         '2fauth'        => 'Authentication Code',
-        'invalid'       => 'Invalid username or password',
+        'invalid'       => '无效的用户名或密码',
         'invalid-token' => 'Invalid token',
         'cookies'       => 'You must enable cookies to login.',
+        'rate-limit'    => '已超出登陆次数限制。',
     ],
 
     // Incidents form fields
@@ -52,7 +53,7 @@ return [
         'templates'          => [
             'name'     => '事件名',
             'template' => 'Template',
-            'twig'     => 'Incident Templates can make use of the <a href="http://twig.sensiolabs.org/" target="_blank">Twig</a> templating language.',
+            'twig'     => '故障模板可以使用 <a href="http://twig.sensiolabs.org/" target="_blank">Twig</a> 模板语言',
         ],
     ],
 
@@ -68,8 +69,11 @@ return [
         'enabled'     => '启用',
 
         'groups' => [
-            'name'      => '组名',
-            'collapsed' => 'Collapse the group by default?',
+            'name'               => '组名',
+            'collapsing'         => '选择分组可见',
+            'visible'            => '总是展开',
+            'collapsed'          => '默认折叠',
+            'collapsed_incident' => '折叠分组，但当有故障时展开',
         ],
     ],
 
@@ -85,7 +89,8 @@ return [
         'type_sum'         => 'Sum',
         'type_avg'         => 'Average',
         'places'           => '小数点位数',
-        'default_view'     => 'Default View',
+        'default_view'     => '默认视图',
+        'threshold'        => '每个度量点之间应当间隔多少分钟？',
 
         'points' => [
             'value' => 'Value',
@@ -96,14 +101,15 @@ return [
     'settings' => [
         /// Application setup
         'app-setup' => [
-            'site-name'              => '网站名称',
+            'site-name'              => '站点名称',
             'site-url'               => '网址',
             'display-graphs'         => 'Display graphs on status page?',
             'about-this-page'        => '关于本页',
             'days-of-incidents'      => '显示多少天的故障？',
-            'banner'                 => 'Banner Image',
+            'banner'                 => '横幅图像',
             'banner-help'            => "It's recommended that you upload files no bigger than 930px wide .",
             'subscribers'            => 'Allow people to signup to email notifications?',
+            'automatic_localization' => '根据访客的系统语言自动本地化状态页面？',
         ],
         'analytics' => [
             'analytics_google'       => 'Google Analytics 代码',
@@ -122,15 +128,15 @@ return [
             'allowed-domains-help' => 'Comma separated. The domain set above is automatically allowed by default.',
         ],
         'stylesheet' => [
-            'custom-css' => 'Custom Stylesheet',
+            'custom-css' => '自定义 CSS 样式表',
         ],
         'theme' => [
-            'background-color'        => '页面背景色',
+            'background-color'        => '背景色',
             'background-fills'        => '区块填充色(组件, 故障, 页尾)',
             'banner-background-color' => '横幅背景色',
             'banner-padding'          => '横幅Padding值',
             'fullwidth-banner'        => '启用全宽横幅？',
-            'text-color'              => 'Text Color',
+            'text-color'              => '文字颜色',
             'dashboard-login'         => '在页尾显示 管理后台 的入口？',
             'reds'                    => '红 (用于错误类提示)',
             'blues'                   => '蓝 (用于信息类提示)',

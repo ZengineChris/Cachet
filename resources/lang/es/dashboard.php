@@ -15,236 +15,260 @@ return [
 
     // Incidents
     'incidents' => [
-        'title'                    => 'Ereignisse &amp; Termine',
-        'incidents'                => 'Vorfälle',
-        'logged'                   => '{0} Es gibt keine Vorfälle, gute Arbeit.|Du hast einen Vorfall gemeldet.|Du hast <strong>:count</strong> Vorfälle gemeldet.',
-        'incident-create-template' => 'Vorlage erstellen',
-        'incident-templates'       => 'Vorfall Vorlagen',
+        'title'                    => 'Incidencias y horario',
+        'incidents'                => 'Incidentes',
+        'logged'                   => '{0} No hay incidencias, ¡buen trabajo!|Has registrado una incidencia.|Has reportado <strong>:count</strong> incidencias.',
+        'incident-create-template' => 'Crear plantilla',
+        'incident-templates'       => 'Plantillas de incidente',
         'add'                      => [
-            'title'   => 'Vorfall hinzufügen',
-            'success' => 'Vorfall hinzugefügt.',
-            'failure' => 'Etwas ist mit dem Vorfall schiefgelaufen.',
+            'title'   => 'Reportar incidente',
+            'success' => 'Incidente agregado.',
+            'failure' => 'Hubo un error agregando el incidente, por favor intente de nuevo.',
         ],
         'edit' => [
-            'title'   => 'Vorfall bearbeiten',
-            'success' => 'Vorfall aktualisiert.',
-            'failure' => 'Algo salió mal con el incidente.',
+            'title'   => 'Editar un incidente',
+            'success' => 'Incidente actualizado.',
+            'failure' => 'Hubo un error editando el incidente, por favor intente de nuevo.',
         ],
         'delete' => [
-            'success' => 'The incident has been deleted and will not show on your status page.',
-            'failure' => 'The incident could not be deleted. Please try again.',
+            'success' => 'El incidente se ha eliminado y no se mostrará en tu página de estado.',
+            'failure' => 'El incidente no se pudo eliminar, por favor intente de nuevo.',
         ],
 
         // Incident templates
         'templates' => [
             'title' => 'Plantillas de incidente',
             'add'   => [
-                'title'   => 'Vorfallvorlage erstellen',
-                'message' => 'You should add an Incident Template.',
-                'success' => 'Vorlage erstellt.',
-                'failure' => 'Etwas ist mit der Vorfallvorlage schiefgelaufen.',
+                'title'   => 'Crear una plantilla de incidente',
+                'message' => 'Deberías añadir una plantilla de incidente.',
+                'success' => 'Su nueva plantilla de incidentes ha sido creada.',
+                'failure' => 'Algo salió mal con la plantilla de incidente.',
             ],
             'edit' => [
-                'title'   => 'Vorlage bearbeiten',
-                'success' => 'Vorlage aktualisiert!',
-                'failure' => 'Etwas ist mit dem Updaten der Vorfallvorlage schiefgelaufen',
+                'title'   => 'Editar plantilla',
+                'success' => 'La plantilla de incidente ha sido actualizada.',
+                'failure' => 'Algo salió mal actualizando la plantilla de incidente',
             ],
             'delete' => [
-                'success' => 'The tmplate has been deleted.',
-                'failure' => 'The template could not be deleted. Please try again.',
+                'success' => 'La plantilla de incidente se ha eliminado.',
+                'failure' => 'La plantilla de incidente no se pudo eliminar. Por favor, inténtalo de nuevo.',
             ],
         ],
     ],
 
     // Incident Maintenance
     'schedule' => [
-        'schedule'     => 'Geplante Wartungen',
-        'logged'       => '{0} There are no schedules, good work.|You have logged one schedule.|You have reported <strong>:count</strong> schedules.',
-        'scheduled_at' => 'Geplant am :timestamp',
+        'schedule'     => 'Mantenimiento programado',
+        'logged'       => '{0} No hay planificaciones, buen trabajo.|Has registrado una planificación.|Has registrado <strong>:count</strong> planificaciones.',
+        'scheduled_at' => 'Programado para :timestamp',
         'add'          => [
-            'title'   => 'Planmäßige Wartung hinzufügen',
-            'success' => 'Zeitplan hinzugefügt.',
-            'failure' => 'Etwas ist mit dem hinzufügen des Zeitplanes schiefgelaufen.',
+            'title'   => 'Agregar mantenimiento programado',
+            'success' => 'Planificación agregada.',
+            'failure' => 'Algo salió mal agregando la planificación, por favor intente de nuevo.',
         ],
         'edit' => [
-            'title'   => 'Planmäßige Wartung bearbeiten',
-            'success' => 'Zeitplan wurde aktualisiert!',
-            'failure' => 'Etwas ist mit dem Bearbeiten des Zeitplanes schiefgelaufen.',
+            'title'   => 'Editar Mantenimiento Programado',
+            'success' => 'La planificación ha sido actualizada!',
+            'failure' => 'Algo salió mal editando la planificación, por favor intente de nuevo.',
         ],
         'delete' => [
-            'success' => 'Der Zeitplan wurde gelöscht und wird nicht auf Ihrer Statusseite angezeigt.',
-            'failure' => 'Der Zeitplan konnte nicht gelöscht werden. Bitte versuchen Sie es erneut.',
+            'success' => 'La planificación ha sido eliminada y no será mostrada en su página de estado.',
+            'failure' => 'El mantenimiento programado no pudo ser eliminado, por favor, inténtelo de nuevo.',
         ],
     ],
 
     // Components
     'components' => [
-        'components'         => 'Komponenten',
-        'component_statuses' => 'Komponentenstatus',
-        'listed_group'       => 'Gruppiert unter :name',
+        'components'         => 'Componentes',
+        'component_statuses' => 'Estatus de los componentes',
+        'listed_group'       => 'Agrupado bajo :nombre',
         'add'                => [
-            'title'   => 'Komponente hinzufügen',
-            'message' => 'Sie sollten eine Komponente erstellen.',
-            'success' => 'Komponente erstellt.',
-            'failure' => 'Beim Erstellen der Komponente ist etwas schiefgegangen.',
+            'title'   => 'Agregar componente',
+            'message' => 'Deberías agregar un componente.',
+            'success' => 'Componente creado.',
+            'failure' => 'Algo salió mal con el componente, por favor intente de nuevo.',
         ],
         'edit' => [
-            'title'   => 'Komponente bearbeiten',
-            'success' => 'Komponente aktualisiert.',
-            'failure' => 'Algo salió mal con el componente.',
+            'title'   => 'Editar componente',
+            'success' => 'Componente actualizado.',
+            'failure' => 'Algo salió mal con el componente, por favor intente de nuevo.',
         ],
         'delete' => [
-            'success' => 'Component deleted.',
-            'failure' => 'The Component could not be deleted. Please try again.',
+            'success' => 'El componente se ha eliminado!',
+            'failure' => 'El componente no pudo ser eliminado, por favor, inténtelo de nuevo.',
         ],
 
         // Component groups
         'groups' => [
-            'groups'        => 'Komponentgruppe|Komponentgruppen',
-            'no_components' => 'Sie sollten eine Komponentengruppe hinzufügen.',
+            'groups'        => 'Grupo de componente|Grupos de componente',
+            'no_components' => 'Usted debería agregar un grupo de componentes.',
             'add'           => [
-                'title'   => 'Eine Komponentengruppe hinzufügen',
-                'success' => 'Komponentengruppe hinzugefügt.',
-                'failure' => 'Mit der Komponentengruppe ist etwas schiefgegangen.',
+                'title'   => 'Agregar un grupo de componentes',
+                'success' => 'Grupo de componentes agregado.',
+                'failure' => 'Algo salió mal con el grupo de componentes, por favor vuelva a intentarlo.',
             ],
             'edit' => [
-                'title'   => 'Komponentengruppe bearbeiten',
-                'success' => 'Komponentengruppe aktualisiert.',
-                'failure' => 'Mit der Komponentengruppe ist etwas schiefgegangen.',
+                'title'   => 'Editar un grupo de componentes',
+                'success' => 'Grupo de componentes actualizado.',
+                'failure' => 'Algo salió mal con el grupo de componentes, por favor vuelva a intentarlo.',
             ],
             'delete' => [
-                'success' => 'Component Group deleted.',
-                'failure' => 'The Component Group could not be deleted. Please try again.',
+                'success' => 'El grupo de componentes se ha eliminado!',
+                'failure' => 'El grupo de componentes no pudo ser eliminado, por favor, inténtelo de nuevo.',
             ],
         ],
     ],
 
     // Metrics
     'metrics' => [
-        'metrics' => 'Metriken',
+        'metrics' => 'Métricas',
         'add'     => [
-            'title'   => 'Metrik erstellen',
-            'message' => 'You should add a Metric.',
-            'success' => 'Metrik erstellt.',
-            'failure' => 'Mit der Metrik ist etwas schiefgegangen.',
+            'title'   => 'Crear una métrica o indicador',
+            'message' => 'Deberías añadir una métrica.',
+            'success' => 'Métrica creada.',
+            'failure' => 'Algo salió mal con la métrica, por favor, inténtelo de nuevo.',
         ],
         'edit' => [
-            'title'   => 'Metrik bearbeiten',
-            'success' => 'Metrik aktualisiert.',
-            'failure' => 'Mit der Metrik ist etwas schiefgegangen.',
+            'title'   => 'Editar una métrica',
+            'success' => 'Métrica actualizada.',
+            'failure' => 'Algo salió mal con la métrica, por favor, inténtelo de nuevo.',
         ],
         'delete' => [
-            'success' => 'The metric has been deleted and will not show on your status page.',
-            'failure' => 'The metric could not be deleted. Please try again.',
+            'success' => 'La métrica se ha eliminado y no se mostrará más en tu página de estado.',
+            'failure' => 'La métrica no pudo ser eliminada, por favor, inténtelo de nuevo.',
         ],
     ],
     // Subscribers
     'subscribers' => [
-        'subscribers'  => 'Abonnenten',
-        'description'  => 'Abonnenten erhalten E-Mail Updates wenn Vorfälle erstellt werden.',
-        'verified'     => 'Verifiziert',
-        'not_verified' => 'Nicht verifiziert',
-        'add'          => [
-            'title'   => 'Einen neuen Abonnenten hinzufügen',
-            'success' => 'Abonnent hinzugefügt.',
-            'failure' => 'Beim Erstellen der Komponente ist etwas schiefgegangen.',
+        'subscribers'      => 'Suscriptores',
+        'description'      => 'Los suscriptores recibirán actualizaciones por correo electrónico cuando se creen incidentes o se actualicen componentes.',
+        'verified'         => 'Verificado',
+        'not_verified'     => 'No confirmado',
+        'subscriber'       => ':email, suscrito :date',
+        'no_subscriptions' => 'Suscrito a todas las actualizaciones',
+        'add'              => [
+            'title'   => 'Agregar un nuevo subscriptor',
+            'success' => 'Subscriptor agregado.',
+            'failure' => 'Algo salió mal al agregar el suscriptor, por favor, inténtelo de nuevo.',
+            'help'    => 'Agregue cada subscriptor en una línea nueva.',
         ],
         'edit' => [
-            'title'   => 'Abonnent aktualisieren',
-            'success' => 'Abonnent aktualisiert.',
-            'failure' => 'Bei der Aktualisierung ging etwas schief.',
+            'title'   => 'Actualizar subscriptor',
+            'success' => 'Subscriptor actualizado.',
+            'failure' => 'Algo salió mal al editar el suscriptor, por favor, inténtelo de nuevo.',
         ],
     ],
 
     // Team
     'team' => [
-        'team'        => 'Team',
-        'member'      => 'Mitglied',
-        'profile'     => 'Profil',
-        'description' => 'Teammitglieder werden die M&ouml;glichkeit haben, Komponente sowie Vorf&auml;lle hinzuzuf&uuml;gen und zu ver&auml;ndern.',
+        'team'        => 'Equipo',
+        'member'      => 'Miembro',
+        'profile'     => 'Perfil',
+        'description' => 'Los miembros del equipo será capaces de añadir, modificar y editar componentes e incidentes.',
         'add'         => [
-            'title'   => 'Neues Teammitglied hinzufügen',
-            'success' => 'Teammitglied hinzugefügt.',
-            'failure' => 'Mit der Komponente ist etwas schiefgegangen.',
+            'title'   => 'Añadir a un nuevo miembro de equipo',
+            'success' => 'Miembro del equipo agregado.',
+            'failure' => 'No se pudo agregar el miembro del equipo, por favor vuelva a intentarlo.',
         ],
         'edit' => [
-            'title'   => 'Profil aktualisieren',
-            'success' => 'Profil aktualisiert.',
-            'failure' => 'Bei der Aktualisierung ging etwas schief.',
+            'title'   => 'Actualizar perfil',
+            'success' => 'Perfil actualizado.',
+            'failure' => 'Algo salió mal actualizando el perfil, por favor intente de nuevo.',
         ],
         'delete' => [
-            'success' => 'Benutzer aktualisiert.',
-            'failure' => 'Bei dem Löschen dieses Benutzers ging etwas schief.',
+            'success' => 'El miembro del equipo ha sido eliminado y ya no tendrán acceso al Pane de Control!',
+            'failure' => 'No se pudo agregar el miembro del equipo, por favor vuelva a intentarlo.',
         ],
         'invite' => [
             'title'   => 'Invitar a un nuevo miembro al equipo',
-            'success' => 'Los usuarios invitados.',
-            'failure' => 'Algo salió mal en la invitación.',
+            'success' => 'Se ha enviado una invitación',
+            'failure' => 'La invitación no pudo ser enviada, por favor intente de nuevo.',
         ],
     ],
 
     // Settings
     'settings' => [
-        'settings'  => 'Einstellungen',
+        'settings'  => 'Ajustes',
         'app-setup' => [
-            'app-setup'   => 'Anwendungsinstallation',
-            'images-only' => 'Es können nur Bilder hochgeladen werden.',
-            'too-big'     => 'Die von Ihnen hochgeladene Datei ist zu groß. Laden Sie ein Bild welches kleiner als :size ist hoch',
+            'app-setup'   => 'Configuración de aplicación',
+            'images-only' => 'Sólo puedes subir imágenes.',
+            'too-big'     => 'El archivo subido es demasiado grande. Sube una imagen con tamaño menor a: tamaño',
         ],
         'analytics' => [
             'analytics' => 'Analytics',
         ],
         'localization' => [
-            'localization' => 'Localization',
+            'localization' => 'Localización',
+        ],
+        'customization' => [
+            'customization' => 'Personalización',
+            'header'        => 'Cabecera HTML personalizada',
+            'footer'        => 'Pie HTML personalizado',
         ],
         'security' => [
-            'security'   => 'Sicherheit',
-            'two-factor' => 'Nutzer ohne Zwei-Faktor-Authentifizierung',
+            'security'   => 'Seguridad',
+            'two-factor' => 'Usuarios sin autenticación de dos factores',
         ],
         'stylesheet' => [
-            'stylesheet' => 'Stylesheet',
+            'stylesheet' => 'Hoja de estilo',
         ],
         'theme' => [
-            'theme' => 'Theme',
+            'theme' => 'Tema',
         ],
         'edit' => [
-            'success' => 'Einstellungen gespeichert.',
-            'failure' => 'Einstellungen konnten nicht gespeichert werden.',
+            'success' => 'Configuración guardada.',
+            'failure' => 'La configuración no se podido guardar.',
+        ],
+        'credits' => [
+            'credits'       => 'Créditos',
+            'contributors'  => 'Colaboradores',
+            'license'       => 'Cachet es un proyecto de código libre bajo la licencia BSD-3, liberado por <a href="https://alt-three.com/?utm_source=cachet&utm_medium=credits&utm_campaign=Cachet%20Credit%20Dashboard" target="_blank">Alt Three Services Limited</a>.',
+            'backers-title' => 'Patrocinadores',
+            'backers'       => 'Si desea apoyar futuros desarrollos, ingrese a la campaña de <a href="https://patreon.com/jbrooksuk" target="_blank">Cachet Patreon</a>.',
+            'thank-you'     => 'Gracias a todos y cada uno de los :count colaboradores.',
         ],
     ],
 
     // Login
     'login' => [
-        'login'      => 'Anmelden',
-        'logged_in'  => 'Sie sind angemeldet.',
-        'welcome'    => 'Willkommen zurück!',
-        'two-factor' => 'Bitte geben Sie Ihren Token ein.',
+        'login'      => 'Iniciar Sesión',
+        'logged_in'  => 'Estás conectado.',
+        'welcome'    => '¡Bienvenido!',
+        'two-factor' => 'Por favor ingresa tu token.',
     ],
 
     // Sidebar footer
-    'help'        => 'Hilfe',
-    'status_page' => 'Statusseite',
-    'logout'      => 'Abmelden',
+    'help'        => 'Ayuda',
+    'status_page' => 'Página de estado',
+    'logout'      => 'Salir',
 
     // Notifications
     'notifications' => [
-        'notifications' => 'Benachrichtigungen',
-        'awesome'       => 'Großartig.',
-        'whoops'        => 'Hoppla.',
+        'notifications' => 'Notificaciones',
+        'awesome'       => 'Excelente.',
+        'whoops'        => 'Whoops.',
+    ],
+
+    // Widgets
+    'widgets' => [
+        'support'          => 'Apoye Cachet',
+        'support_subtitle' => '¡Visite nuestro proyecto en la página de <strong><a href="https://patreon.com/jbrooksuk" target="_blank">Patreon</a></strong>!',
+        'news'             => 'Últimas noticias',
+        'news_subtitle'    => 'Obtener las actualizaciones más recientes',
     ],
 
     // Welcome modal
     'welcome' => [
-        'welcome' => 'Welcome to your status page!',
-        'message' => 'Ihre Statusseite ist fast fertig! Vielleicht möchten Sie diese zusätzlichen Einstellungen konfigurieren',
-        'close'   => 'Gehe einfach direkt zu meinem Dashboard',
+        'welcome' => 'Bienvenido a tu página de estado!',
+        'message' => 'La página de estado está casi lista! Tal vez quieras configurar estos ajustes adicionales',
+        'close'   => 'Llévame directamente a mi dashboard',
         'steps'   => [
-            'component'  => 'Komponenten erstellen',
-            'incident'   => 'Vorfälle erstellen',
-            'customize'  => 'Personalisieren',
-            'team'       => 'Benutzer hinzufügen',
-            'api'        => 'API Token generieren',
-            'two-factor' => 'Zwei-Faktor-Authentifizierung',
+            'component'  => 'Crear componentes',
+            'incident'   => 'Crear incidentes',
+            'customize'  => 'Personalizar',
+            'team'       => 'Agregar Usuarios',
+            'api'        => 'Generar token API',
+            'two-factor' => 'Autenticación de dos factores',
         ],
     ],
 

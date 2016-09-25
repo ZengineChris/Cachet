@@ -29,7 +29,15 @@ class MetricController extends AbstractApiController
      */
     public function getMetrics()
     {
-        $metrics = Metric::paginate(Binput::get('per_page', 20));
+        $metrics = Metric::query();
+
+        if ($sortBy = Binput::get('sort')) {
+            $direction = Binput::has('order') && Binput::get('order') == 'desc';
+
+            $metrics->sort($sortBy, $direction);
+        }
+
+        $metrics = $metrics->paginate(Binput::get('per_page', 20));
 
         return $this->paginator($metrics, Request::instance());
     }
@@ -55,7 +63,9 @@ class MetricController extends AbstractApiController
      */
     public function getMetricPoints(Metric $metric)
     {
-        return $this->collection($metric->points);
+        $points = $metric->points()->paginate(Binput::get('per_page', 20));
+
+        return $this->paginator($points, Request::instance());
     }
 
     /**
@@ -72,9 +82,11 @@ class MetricController extends AbstractApiController
                 Binput::get('description'),
                 Binput::get('default_value'),
                 Binput::get('calc_type', 0),
-                Binput::get('display_chart'),
+                Binput::get('display_chart', true),
                 Binput::get('places', 2),
-                Binput::get('view', 1)
+                Binput::get('default_view', Binput::get('view', 1)),
+                Binput::get('threshold', 5),
+                Binput::get('order', 0)
             ));
         } catch (QueryException $e) {
             throw new BadRequestHttpException();
@@ -99,10 +111,12 @@ class MetricController extends AbstractApiController
                 Binput::get('suffix'),
                 Binput::get('description'),
                 Binput::get('default_value'),
-                Binput::get('calc_type', 0),
+                Binput::get('calc_type'),
                 Binput::get('display_chart'),
-                Binput::get('places', 2),
-                Binput::get('view', 1)
+                Binput::get('places'),
+                Binput::get('default_view', Binput::get('view')),
+                Binput::get('threshold'),
+                Binput::get('order')
             ));
         } catch (QueryException $e) {
             throw new BadRequestHttpException();

@@ -27,13 +27,14 @@ return [
 
     // Login form fields
     'login' => [
-        'login'         => 'Username or Email',
+        'login'         => 'Username oder E-Mail',
         'email'         => 'E-Mail',
         'password'      => 'Passwort',
         '2fauth'        => 'Authentifizierungscode',
-        'invalid'       => 'Invalid username or password',
+        'invalid'       => 'Ungültiger Benutzername oder Passwort',
         'invalid-token' => 'Token ist ungültig',
         'cookies'       => 'Sie müssen Cookies aktivieren um sich anzumelden.',
+        'rate-limit'    => 'Maximale Anzahl von Bewertungen erreicht.',
     ],
 
     // Incidents form fields
@@ -52,7 +53,7 @@ return [
         'templates'          => [
             'name'     => 'Name',
             'template' => 'Vorlage',
-            'twig'     => 'Incident Templates can make use of the <a href="http://twig.sensiolabs.org/" target="_blank">Twig</a> templating language.',
+            'twig'     => 'Vorfall Vorlagen können den <a href="http://twig.sensiolabs.org/" target="_blank">Twig</a> Syntax nutzen.',
         ],
     ],
 
@@ -68,8 +69,11 @@ return [
         'enabled'     => 'Component enabled?',
 
         'groups' => [
-            'name'      => 'Name',
-            'collapsed' => 'Collapse the group by default?',
+            'name'               => 'Name',
+            'collapsing'         => 'Wähle Sichtbarkeit der Gruppe',
+            'visible'            => 'Immer erweitert',
+            'collapsed'          => 'Die Gruppe standardmäßig ausblenden',
+            'collapsed_incident' => 'Die Gruppe standardmäßig ausblenden, aber erweitern wenn es Probleme gibt',
         ],
     ],
 
@@ -85,7 +89,8 @@ return [
         'type_sum'         => 'Summe',
         'type_avg'         => 'Durchschnitt',
         'places'           => 'Nachkommastellen',
-        'default_view'     => 'Default View',
+        'default_view'     => 'Standardansicht',
+        'threshold'        => 'Wie viele Minuten soll der Abstand zwischen den Messpunkten sein?',
 
         'points' => [
             'value' => 'Wert',
@@ -101,9 +106,10 @@ return [
             'display-graphs'         => 'Graphen auf der Statusseite anzeigen?',
             'about-this-page'        => 'Über diese Seite',
             'days-of-incidents'      => 'Wie viele Tage mit Vorfällen sollen gezeigt werden?',
-            'banner'                 => 'Banner',
+            'banner'                 => 'Banner Bild',
             'banner-help'            => 'Es wird empfohlen, dass Sie keine Dateien die breiter als 930 Pixel sind hochladen .',
             'subscribers'            => 'Personen die Anmeldung für E-Mail-Benachrichtigung erlauben?',
+            'automatic_localization' => 'Die Status-Seite automatisch auf die Sprache deiner Besucher anpassen?',
         ],
         'analytics' => [
             'analytics_google'       => 'Google Analytics Code',

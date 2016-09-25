@@ -23,7 +23,6 @@ class Kernel extends HttpKernel
     protected $middleware = [
         'Fideloper\Proxy\TrustProxies',
         'Illuminate\Foundation\Http\Middleware\CheckForMaintenanceMode',
-
     ];
 
     /**
@@ -40,6 +39,7 @@ class Kernel extends HttpKernel
             'Illuminate\Foundation\Http\Middleware\VerifyCsrfToken',
         ],
         'api' => [
+            'Barryvdh\Cors\HandleCors',
             'CachetHQ\Cachet\Http\Middleware\Acceptable',
             'CachetHQ\Cachet\Http\Middleware\Timezone',
         ],
@@ -59,6 +59,6 @@ class Kernel extends HttpKernel
         'ready'       => 'CachetHQ\Cachet\Http\Middleware\ReadyForUse',
         'setup'       => 'CachetHQ\Cachet\Http\Middleware\SetupAlreadyCompleted',
         'subscribers' => 'CachetHQ\Cachet\Http\Middleware\SubscribersConfigured',
-        'throttling'  => 'GrahamCampbell\Throttle\Http\Middleware\ThrottleMiddleware',
+        'throttle'    => 'AltThree\Throttle\ThrottlingMiddleware',
     ];
 }

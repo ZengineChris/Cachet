@@ -12,6 +12,8 @@
 namespace CachetHQ\Cachet\Models;
 
 use AltThree\Validator\ValidatingTrait;
+use CachetHQ\Cachet\Models\Traits\SearchableTrait;
+use CachetHQ\Cachet\Models\Traits\SortableTrait;
 use CachetHQ\Cachet\Presenters\ComponentPresenter;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
@@ -20,7 +22,7 @@ use McCool\LaravelAutoPresenter\HasPresenter;
 
 class Component extends Model implements HasPresenter
 {
-    use SoftDeletes, ValidatingTrait;
+    use SearchableTrait, SoftDeletes, SortableTrait, ValidatingTrait;
 
     /**
      * List of attributes that have default values.
@@ -74,6 +76,34 @@ class Component extends Model implements HasPresenter
         'name'   => 'required|string',
         'status' => 'int|required',
         'link'   => 'url',
+    ];
+
+    /**
+     * The searchable fields.
+     *
+     * @var string[]
+     */
+    protected $searchable = [
+        'id',
+        'name',
+        'status',
+        'order',
+        'group_id',
+        'enabled',
+    ];
+
+    /**
+     * The sortable fields.
+     *
+     * @var string[]
+     */
+    protected $sortable = [
+        'id',
+        'name',
+        'status',
+        'order',
+        'group_id',
+        'enabled',
     ];
 
     /**

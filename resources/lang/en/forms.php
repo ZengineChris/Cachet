@@ -23,6 +23,11 @@ return [
         'enable_google2fa' => 'Enable Google Two Factor Authentication',
         'cache_driver'     => 'Cache Driver',
         'session_driver'   => 'Session Driver',
+        'mail_driver'      => 'Mail Driver',
+        'mail_host'        => 'Mail Host',
+        'mail_address'     => 'Mail From Address',
+        'mail_username'    => 'Mail Username',
+        'mail_password'    => 'Mail Password',
     ],
 
     // Login form fields
@@ -34,6 +39,7 @@ return [
         'invalid'       => 'Invalid username or password',
         'invalid-token' => 'Invalid token',
         'cookies'       => 'You must enable cookies to login.',
+        'rate-limit'    => 'Rate limit exceeded.',
     ],
 
     // Incidents form fields
@@ -46,7 +52,7 @@ return [
         'scheduled_at'       => 'When to schedule the maintenance for?',
         'incident_time'      => 'When did this incident occur?',
         'notify_subscribers' => 'Notify subscribers?',
-        'visibility'         => 'Incident visibility',
+        'visibility'         => 'Incident Visibility',
         'public'             => 'Viewable by public',
         'logged_in_only'     => 'Only visible to logged in users',
         'templates'          => [
@@ -68,8 +74,11 @@ return [
         'enabled'     => 'Component enabled?',
 
         'groups' => [
-            'name'      => 'Name',
-            'collapsed' => 'Collapse the group by default?',
+            'name'               => 'Name',
+            'collapsing'         => 'Choose visibility of the group',
+            'visible'            => 'Always expanded',
+            'collapsed'          => 'Collapse the group by default',
+            'collapsed_incident' => 'Collapse the group, but expand if there are issues',
         ],
     ],
 
@@ -86,6 +95,7 @@ return [
         'type_avg'         => 'Average',
         'places'           => 'Decimal places',
         'default_view'     => 'Default view',
+        'threshold'        => 'How many minutes of threshold between metric points?',
 
         'points' => [
             'value' => 'Value',
@@ -94,16 +104,20 @@ return [
 
     // Settings
     'settings' => [
-        /// Application setup
+        // Application setup
         'app-setup' => [
-            'site-name'              => 'Site name',
-            'site-url'               => 'Site URL',
-            'display-graphs'         => 'Display graphs on status page?',
-            'about-this-page'        => 'About this page',
-            'days-of-incidents'      => 'How many days of incidents to show?',
-            'banner'                 => 'Banner image',
-            'banner-help'            => "It's recommended that you upload files no bigger than 930px wide .",
-            'subscribers'            => 'Allow people to signup to email notifications?',
+            'site-name'                    => 'Site Name',
+            'site-url'                     => 'Site URL',
+            'display-graphs'               => 'Display graphs on status page?',
+            'about-this-page'              => 'About this page',
+            'days-of-incidents'            => 'How many days of incidents to show?',
+            'banner'                       => 'Banner Image',
+            'banner-help'                  => "It's recommended that you upload files no bigger than 930px wide .",
+            'subscribers'                  => 'Allow people to signup to email notifications?',
+            'skip_subscriber_verification' => 'Skip verifying of users? (Be warned, you could be spammed)',
+            'automatic_localization'       => 'Automatically localise your status page to your visitor\'s language?',
+            'enable_external_dependencies' => 'Enable Third Party Dependencies (Google Fonts, Trackers, etc...)',
+            'show_timezone'                => 'Show the timezone the status page is running in.',
         ],
         'analytics' => [
             'analytics_google'       => 'Google Analytics code',
@@ -122,15 +136,15 @@ return [
             'allowed-domains-help' => 'Comma separated. The domain set above is automatically allowed by default.',
         ],
         'stylesheet' => [
-            'custom-css' => 'Custom stylesheet',
+            'custom-css' => 'Custom Stylesheet',
         ],
         'theme' => [
-            'background-color'        => 'Background color',
+            'background-color'        => 'Background Color',
             'background-fills'        => 'Background fills (components, incidents, footer)',
             'banner-background-color' => 'Banner background color',
             'banner-padding'          => 'Banner padding',
             'fullwidth-banner'        => 'Enable fullwidth banner?',
-            'text-color'              => 'Text color',
+            'text-color'              => 'Text Color',
             'dashboard-login'         => 'Show dashboard button in the footer?',
             'reds'                    => 'Red (used for errors)',
             'blues'                   => 'Blue (used for information)',

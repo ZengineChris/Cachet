@@ -12,87 +12,90 @@
 return [
     // Components
     'components' => [
-        'status' => [
-            1 => 'Operational',
-            2 => 'Performance Issues',
-            3 => 'Partial Outage',
-            4 => 'Major Outage',
+        'last_updated' => 'Darrera actualització :timestamp',
+        'status'       => [
+            1 => 'Operatiu',
+            2 => 'Problemes de rendiment',
+            3 => 'Interrupció parcial',
+            4 => 'Interrupció major',
+        ],
+        'group' => [
+            'other' => 'Altres components',
         ],
     ],
 
     // Incidents
     'incidents' => [
-        'none'          => 'Nothing to report',
-        'past'          => 'Past Incidents',
-        'previous_week' => 'Previous Week',
-        'next_week'     => 'Next Week',
-        'none'          => 'Nothing to report',
-        'scheduled'     => 'Scheduled Maintenance',
-        'scheduled_at'  => ', scheduled :timestamp',
+        'none'          => 'No s\'han registrat incidents',
+        'past'          => 'Incidents anteriors',
+        'previous_week' => 'Setmana anterior',
+        'next_week'     => 'Propera setmana',
+        'scheduled'     => 'Interrupció programada',
+        'scheduled_at'  => ', programat',
         'status'        => [
-            0 => 'Scheduled', // TODO: Hopefully remove this.
-            1 => 'Investigating',
-            2 => 'Identified',
-            3 => 'Watching',
-            4 => 'Fixed',
+            0 => 'Programat', // TODO: Hopefully remove this.
+            1 => 'Investigant',
+            2 => 'Identificat',
+            3 => 'En observació',
+            4 => 'Resolt',
         ],
     ],
 
     // Service Status
     'service' => [
-        'good'  => '[0,1] System operational|[2,Inf] All systems are operational',
-        'bad'   => '[0,1] The system is currently experiencing issues|[2,Inf] Some systems are experiencing issues',
-        'major' => '[0,1] The service experiencing a major outage|[2,Inf] Some systems are experiencing a major outage',
+        'good'  => '[0,1] Sistema en funcionament | [2, Inf] Tots els sistemes estan en funcionament',
+        'bad'   => '[0,1] Actualment el sistema està experimentant problemes| [2, Inf] Alguns sistemes estan experimentant problemes',
+        'major' => '[0,1] El servei està experimentant una interrupció major| [2, Inf] Alguns sistemes estan experimentant una interrupció major',
     ],
 
     'api' => [
-        'regenerate' => 'Regenerate API Key',
-        'revoke'     => 'Revoke API Key',
+        'regenerate' => 'Regenerau la clau de l\'API',
+        'revoke'     => 'Revocau la clau de l\'API',
     ],
 
     // Metrics
     'metrics' => [
         'filter' => [
-            'last_hour' => 'Last Hour',
-            'hourly'    => 'Last 12 Hours',
-            'weekly'    => 'Week',
-            'monthly'   => 'Month',
+            'last_hour' => 'Darrera hora',
+            'hourly'    => 'Darreres 12 hores',
+            'weekly'    => 'Setmana',
+            'monthly'   => 'Mes',
         ],
     ],
 
     // Subscriber
     'subscriber' => [
-        'subscribe' => 'Subscribe to get the most recent updates',
-        'button'    => 'Subscribe',
-        'email'     => [
-            'subscribe'          => 'Subscribe to email updates.',
-            'subscribed'         => 'You\'ve been subscribed to email notifications, please check your email to confirm your subscription.',
-            'verified'           => 'Your email subscription has been confirmed. Thank you!',
-            'unsubscribe'        => 'Unsubscribe from email updates.',
-            'unsubscribed'       => 'Your email subscription has been cancelled.',
-            'failure'            => 'Something went wrong with the subscription.',
-            'already-subscribed' => 'Cannot subscribe :email because they\'re already subscribed.',
+        'subscribe' => 'Subscriviu-vos per rebre les darreres actualitzacions',
+        'button'    => 'Subscriviu-vos',
+        'manage'    => [
+            'no_subscriptions' => 'Actualment estau subscrits a totes les actualitzacions.',
+            'my_subscriptions' => 'Actualment estau subscrits a les següents actualitzacions.',
+        ],
+        'email' => [
+            'subscribe'          => 'Subscriviu-vos a les actualitzacions del correu electrònic.',
+            'subscribed'         => 'Heu estat subscrits a les actualitzacions del correu electrònic. Per favor, consultau el vostre correu electrònic per confirmar la subscripció.',
+            'verified'           => 'La vostra subscripció al correu electrònic ha estat confirmada. Gràcies!',
+            'manage'             => 'Manage your subscription',
+            'unsubscribe'        => 'Des-subscriviu-vos.',
+            'unsubscribed'       => 'La vostra subscripció del correu electrònic ha estat cancel·lada.',
+            'failure'            => 'Alguna cosa ha anat malament en el procés de subscripció.',
+            'already-subscribed' => 'No pot subscriure\'s :email perquè ja està subscrit.',
             'verify'             => [
-                'text'           => "Please confirm your email subscription to :app_name status updates.\n:link\nThank you, :app_name",
-                'html-preheader' => 'Please confirm your email subscription to :app_name status updates.',
-                'html'           => '<p>Please confirm your email subscription to :app_name status updates.</p><p><a href=":link">:link</a></p><p>Thank you, :app_name</p>',
+                'text'   => "Please confirm your email subscription to :app_name status updates.\n:link",
+                'html'   => '<p>Please confirm your email subscription to :app_name status updates.</p>',
+                'button' => 'Confirm Subscription',
             ],
             'maintenance' => [
-                'text'           => "New maintenance has been scheduled on :app_name.\nThank you, :app_name",
-                'html-preheader' => 'New maintenance has been scheduled on :app_name.',
-                'html'           => '<p>New maintenance has been scheduled on :app_name.</p>',
+                'subject' => '[Maintenance Scheduled] :name',
             ],
             'incident' => [
-                'text'           => "New incident has been reported on :app_name.\nThank you, :app_name",
-                'html-preheader' => 'New incident has been reported on :app_name.',
-                'html'           => '<p>New incident has been reported on :app_name.</p><p>Thank you, :app_name</p>',
+                'subject' => '[New Incident] :status: :name',
             ],
             'component' => [
-                'subject'        => 'Component Status Update',
-                'text'           => 'The component :component_name has seen a status change. The component is now at :component_human_status.\nThank you, :app_name',
-                'html-preheader' => 'Component Update from :app_name',
-                'html'           => '<p>The component :component_name has seen a status change. The component is now at :component_human_status.</p><p>Thank you, :app_name</p>',
-                'tooltip-title'  => 'Subscribe to notifications for :component_name.',
+                'subject'       => 'Actualització de l\'estat del component',
+                'text'          => 'The component :component_name has seen a status change. The component is now at :component_human_status.\nThank you, :app_name',
+                'html'          => '<p>The component :component_name has seen a status change. The component is now at :component_human_status.</p><p>Thank you, :app_name</p>',
+                'tooltip-title' => 'Subscribe to notifications for :component_name.',
             ],
         ],
     ],
@@ -101,7 +104,6 @@ return [
         'email' => [
             'invite' => [
                 'text'           => "You have been invited to the team :app_name status page, to sign up follow the next link.\n:link\nThank you, :app_name",
-                'html-preheader' => 'You have been invited to the team :app_name.',
                 'html'           => '<p>You have been invited to the team :app_name status page, to sign up follow the next link.</p><p><a href=":link">:link</a></p><p>Thank you, :app_name</p>',
             ],
         ],
@@ -109,9 +111,9 @@ return [
 
     'signup' => [
         'title'    => 'Sign Up',
-        'username' => 'Username',
-        'email'    => 'Email',
-        'password' => 'Password',
+        'username' => 'Nom de l\'usuari',
+        'email'    => 'Correu electrònic',
+        'password' => 'Contrasenya',
         'success'  => 'Your account has been created.',
         'failure'  => 'Something went wrong with the signup.',
     ],
@@ -122,19 +124,21 @@ return [
 
     // Modal
     'modal' => [
-        'close'     => 'Close',
+        'close'     => 'Tanca',
         'subscribe' => [
-            'title'  => 'Subscribe to component updates?',
-            'body'   => 'Enter your email address to subscribe to updates for this component. If you\'re already subscribed, you\'ll receive emails for this component too.',
-            'button' => 'Subscribe',
+            'title'  => 'Subscribe to component updates',
+            'body'   => 'Enter your email address to subscribe to updates for this component. If you\'re already subscribed, you\'ll already receive emails for this component.',
+            'button' => 'Subscriviu-vos',
         ],
     ],
 
     // Other
-    'powered_by'      => ':app Status Page is powered by <a href="https://cachethq.io" class="links">Cachet</a>.',
-    'about_this_site' => 'About This Site',
+    'home'            => 'Inici',
+    'description'     => 'Stay up to date with the latest service updates from :app.',
+    'powered_by'      => 'Powered by <a href="https://cachethq.io" class="links">Cachet</a>.',
+    'about_this_site' => 'Sobre aquest lloc',
     'rss-feed'        => 'RSS',
     'atom-feed'       => 'Atom',
-    'feed'            => 'Status Feed',
+    'feed'            => 'Estat',
 
 ];

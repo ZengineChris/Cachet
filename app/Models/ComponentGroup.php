@@ -12,13 +12,25 @@
 namespace CachetHQ\Cachet\Models;
 
 use AltThree\Validator\ValidatingTrait;
+use CachetHQ\Cachet\Models\Traits\SearchableTrait;
+use CachetHQ\Cachet\Models\Traits\SortableTrait;
 use CachetHQ\Cachet\Presenters\ComponentGroupPresenter;
 use Illuminate\Database\Eloquent\Model;
 use McCool\LaravelAutoPresenter\HasPresenter;
 
 class ComponentGroup extends Model implements HasPresenter
 {
-    use ValidatingTrait;
+    use SearchableTrait, SortableTrait, ValidatingTrait;
+
+    /**
+     * The model's attributes.
+     *
+     * @var string
+     */
+    protected $attributes = [
+        'order'     => 0,
+        'collapsed' => 0,
+    ];
 
     /**
      * The attributes that should be casted to native types.
@@ -28,7 +40,7 @@ class ComponentGroup extends Model implements HasPresenter
     protected $casts = [
         'name'      => 'string',
         'order'     => 'int',
-        'collapsed' => 'bool',
+        'collapsed' => 'int',
     ];
 
     /**
@@ -46,7 +58,31 @@ class ComponentGroup extends Model implements HasPresenter
     public $rules = [
         'name'      => 'required|string',
         'order'     => 'int',
-        'collapsed' => 'bool',
+        'collapsed' => 'int',
+    ];
+
+    /**
+     * The searchable fields.
+     *
+     * @var string[]
+     */
+    protected $searchable = [
+        'id',
+        'name',
+        'order',
+        'collapsed',
+    ];
+
+    /**
+     * The sortable fields.
+     *
+     * @var string[]
+     */
+    protected $sortable = [
+        'id',
+        'name',
+        'order',
+        'collapsed',
     ];
 
     /**
@@ -63,7 +99,17 @@ class ComponentGroup extends Model implements HasPresenter
      */
     public function components()
     {
-        return $this->hasMany(Component::class, 'group_id', 'id');
+        return $this->hasMany(Component::class, 'group_id', 'id')->orderBy('order');
+    }
+
+    /**
+     * Get the incidents relation.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasManyThrough
+     */
+    public function incidents()
+    {
+        return $this->hasManyThrough(Incident::class, Component::class, 'id', 'component_id');
     }
 
     /**

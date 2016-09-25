@@ -12,87 +12,90 @@
 return [
     // Components
     'components' => [
-        'status' => [
-            1 => 'Funktionsfähig',
-            2 => 'Leistungsprobleme',
-            3 => 'Teilweiser Ausfall',
-            4 => 'Schwerer Ausfall',
+        'last_updated' => 'Dernière mise à jour :timestamp',
+        'status'       => [
+            1 => 'Opérationnel',
+            2 => 'Problèmes de performances',
+            3 => 'Panne partielle',
+            4 => 'Panne majeure',
+        ],
+        'group' => [
+            'other' => 'Autres composants',
         ],
     ],
 
     // Incidents
     'incidents' => [
-        'none'          => 'Aucun incident signalé.',
+        'none'          => 'Aucun incident signalé',
         'past'          => 'Incidents antérieurs',
         'previous_week' => 'Semaine précédente',
         'next_week'     => 'Semaine suivante',
-        'none'          => 'Aucun incident signalé.',
-        'scheduled'     => 'Geplante Wartungen',
-        'scheduled_at'  => ', geplant :timestamp',
+        'scheduled'     => 'Maintenance Planifiée',
+        'scheduled_at'  => ', planifé à :timestamp',
         'status'        => [
-            0 => 'Geplant', // TODO: Hopefully remove this.
-            1 => 'Untersuchungen laufen',
-            2 => 'Identifiziert',
-            3 => 'Unter Beobachtung',
-            4 => 'Behoben',
+            0 => 'Planifié', // TODO: Hopefully remove this.
+            1 => 'Enquête en cours',
+            2 => 'Identifié',
+            3 => 'Sous surveillance',
+            4 => 'Corrigé',
         ],
     ],
 
     // Service Status
     'service' => [
-        'good'  => '[0,1] System operational|[2,Inf] All systems are operational',
-        'bad'   => '[0,1] The system is currently experiencing issues|[2,Inf] Some systems are experiencing issues',
-        'major' => '[0,1] The service experiencing a major outage|[2,Inf] Some systems are experiencing a major outage',
+        'good'  => '[0,1] Système opérationnel|[2,Inf] Tous les systèmes sont opérationnels',
+        'bad'   => '[0,1] Le système rencontre actuellement des problèmes|[2,Inf] Certains systèmes rencontrent des problèmes',
+        'major' => '[0,1] Le service rencontre une panne majeure|[2,Inf] Certains systèmes rencontrent une panne majeure',
     ],
 
     'api' => [
-        'regenerate' => 'API-Schlüssel neu generieren',
-        'revoke'     => 'API-Schlüssel widerrufen',
+        'regenerate' => 'Régénérer la clé API',
+        'revoke'     => 'Révoquer la clé API',
     ],
 
     // Metrics
     'metrics' => [
         'filter' => [
-            'last_hour' => 'Last Hour',
-            'hourly'    => 'Last 12 Hours',
-            'weekly'    => 'Week',
-            'monthly'   => 'Month',
+            'last_hour' => 'Dernière heure',
+            'hourly'    => 'Les 12 dernières heures',
+            'weekly'    => 'Semaine',
+            'monthly'   => 'Mois',
         ],
     ],
 
     // Subscriber
     'subscriber' => [
         'subscribe' => 'Abonnez-vous pour obtenir les dernières mises à jour.',
-        'button'    => 'Abonnieren',
-        'email'     => [
-            'subscribe'          => 'Aktualisierungen per E-Mail abonnieren.',
-            'subscribed'         => 'Sie haben E-Mail-Benachrichtigungen abonniert, überprüfen Sie bitte Ihre E-Mail, um Ihr Abonnement zu bestätigen.',
-            'verified'           => 'Ihre E-Mail-Abonnement ist bestätigt worden. Danke!',
+        'button'    => 'S\'abonner',
+        'manage'    => [
+            'no_subscriptions' => 'Vous êtes actuellement abonné à toutes les mises à jour.',
+            'my_subscriptions' => 'Vous êtes actuellement abonné aux mises à jour suivantes.',
+        ],
+        'email' => [
+            'subscribe'          => 'S\'abonner aux notifications par email.',
+            'subscribed'         => 'Vous êtes abonné aux notifications par email, veuillez vérifier votre messagerie pour confirmer votre adresse.',
+            'verified'           => 'Votre abonnement aux notifications par email a été confirmé. Merci !',
+            'manage'             => 'Gérer votre abonnement',
             'unsubscribe'        => 'Désinscription des mises à jour par courriel.',
-            'unsubscribed'       => 'Ihre E-Mail-Abonnement wurde gekündigt.',
-            'failure'            => 'Etwas ist mit dem Abonnement schief gelaufen.',
-            'already-subscribed' => 'Cannot subscribe :email because they\'re already subscribed.',
+            'unsubscribed'       => 'Votre abonnement aux notifications par email a été annulé.',
+            'failure'            => 'Une erreur est survenue lors de l\'abonnement.',
+            'already-subscribed' => 'Impossible de s\'abonner avec l\'adresse e-mail :email car celle-ci est déjà abonnée.',
             'verify'             => [
-                'text'           => "Bitte bestätigen Sie Ihre E-Mail-Abonnement zu :app_name Status-Aktualisierungen.\n:link\nDanke, :app_name",
-                'html-preheader' => 'Bitte bestätigen Sie Ihre E-Mail-Abonnement zu :app_name Status-Aktualisierungen.',
-                'html'           => '<p>Bestätigen Sie bitte Ihr E-Mail-Abonnement für :app_name Statusaktualisierungen.</p><p><a href=":link">:link</a></p><p>Danke, :app_name</p>',
+                'text'   => "Veuillez confirmer votre abonnement par courriel aux changements de statut de :app_name.\n:link",
+                'html'   => '<p>Veuillez confirmer votre abonnement par courriel aux changements de statut de :app_name.</p>',
+                'button' => 'Confirmer l\'abonnement',
             ],
             'maintenance' => [
-                'text'           => "Neue Wartung wurde für :app_name geplant.\nDanke, :app_name",
-                'html-preheader' => 'Neue Wartung wurde für :app_name geplant.',
-                'html'           => '<p>Neue Wartung wurde für :app_name geplant.</p>',
+                'subject' => '[Maintenance planifiée] :name',
             ],
             'incident' => [
-                'text'           => "Ein neuer Vorfall wurde auf :app_name berichtet.\nDanke, :app_name",
-                'html-preheader' => 'Ein neuer Vorfall wurde über :app_name berichtet.',
-                'html'           => '<p>Ein neuer Vorfall wurde über :app_name berichtet.</p> <p>Danke, :app_name</p>',
+                'subject' => '[Nouvel incident] :status: :name',
             ],
             'component' => [
-                'subject'        => 'Component Status Update',
-                'text'           => 'The component :component_name has seen a status change. The component is now at :component_human_status.\nThank you, :app_name',
-                'html-preheader' => 'Component Update from :app_name',
-                'html'           => '<p>The component :component_name has seen a status change. The component is now at :component_human_status.</p><p>Thank you, :app_name</p>',
-                'tooltip-title'  => 'Subscribe to notifications for :component_name.',
+                'subject'       => 'Mise à jour du statut d\'un composant',
+                'text'          => 'Le statut du composant :component_name a été mis à jour. Il est maintenant :component_human_status.\nMerci, :app_name',
+                'html'          => '<p>Le statut du composant :component_name a été mis à jour. Il est maintenant :component_human_status.</p><p>Merci, :app_name</p>',
+                'tooltip-title' => 'S\'abonner aux notifications pour :component_name.',
             ],
         ],
     ],
@@ -101,8 +104,7 @@ return [
         'email' => [
             'invite' => [
                 'text'           => "Vous avez été invité à la page de statut de l'équipe :app_name , veuillez suivre le lien suivant pour vous inscire \n:link\nMerci, :app_name",
-                'html-preheader' => 'Vous avez été invité à rejoindre l\'équipe :app_name.',
-                'html'           => '<p>You have been invited to the team :app_name status page, to sign up follow the next link.</p><p><a href=":link">:link</a></p><p>Thank you, :app_name</p>',
+                'html'           => '<p>Vous avez été invité à la page de statut de l\'équipe :app_name, veuillez suivre le lien suivant pour vous inscrire.</p><p><a href=":link">:link</a></p><p>Merci, :app_name</p>',
             ],
         ],
     ],
@@ -110,31 +112,33 @@ return [
     'signup' => [
         'title'    => 'Inscription',
         'username' => 'Nom d\'utilisateur',
-        'email'    => 'Adresse email',
+        'email'    => 'Adresse e-mail',
         'password' => 'Mot de passe ',
         'success'  => 'Votre compte a été créé.',
         'failure'  => 'Un problème est survenu lors de votre inscription.',
     ],
 
     'system' => [
-        'update' => 'There is a newer version of Cachet available. You can learn how to update <a href="https://docs.cachethq.io/docs/updating-cachet">here</a>!',
+        'update' => 'Il y a une nouvelle version de Cachet disponible. Vous pouvez trouver des renseignements concernant la procédure de mise à jour <a href="https://docs.cachethq.io/docs/updating-cachet">ici</a>!',
     ],
 
     // Modal
     'modal' => [
-        'close'     => 'Close',
+        'close'     => 'Fermer',
         'subscribe' => [
-            'title'  => 'Subscribe to component updates?',
-            'body'   => 'Enter your email address to subscribe to updates for this component. If you\'re already subscribed, you\'ll receive emails for this component too.',
-            'button' => 'Abonnieren',
+            'title'  => 'S\'abonner aux mises à jour du status du composant',
+            'body'   => 'Entrez votre adresse e-mail pour vous abonner aux mises à jour de ce composant. Si vous êtes déjà abonné, vous recevez déjà des notifications pour ce composant.',
+            'button' => 'S\'abonner',
         ],
     ],
 
     // Other
-    'powered_by'      => ':app Status Page est propulsé par <a href="https://cachethq.io">Cachet</a>.',
+    'home'            => 'Accueil',
+    'description'     => 'Restez à jour avec les dernières mises à jour de :app.',
+    'powered_by'      => 'Propulsé par <a href="https://cachethq.io">Cachet</a>.',
     'about_this_site' => 'À propos du site',
     'rss-feed'        => 'RSS',
     'atom-feed'       => 'Atom',
-    'feed'            => 'Status-Feed',
+    'feed'            => 'Flux des statuts',
 
 ];

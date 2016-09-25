@@ -12,21 +12,24 @@
 return [
     // Components
     'components' => [
-        'status' => [
+        'last_updated' => 'Last updated :timestamp',
+        'status'       => [
             1 => 'Operasional',
             2 => 'Masalah Kinerja',
             3 => 'Gagal Sebagian',
             4 => 'Kegagalan Sistem',
         ],
+        'group' => [
+            'other' => 'Other Components',
+        ],
     ],
 
     // Incidents
     'incidents' => [
-        'none'          => 'Tidak ada insiden.',
+        'none'          => 'No incidents reported',
         'past'          => 'Insiden sebelumnya',
         'previous_week' => 'Pekan sebelumnya',
         'next_week'     => 'Pekan selanjutnya',
-        'none'          => 'Tidak ada insiden.',
         'scheduled'     => 'Jadwal Pemeliharaan',
         'scheduled_at'  => ', dijadwalkan pada :timestamp',
         'status'        => [
@@ -64,36 +67,35 @@ return [
     'subscriber' => [
         'subscribe' => 'Ikuti newsletter untuk mendapat update terbaru.',
         'button'    => 'Daftar',
-        'email'     => [
+        'manage'    => [
+            'no_subscriptions' => 'You\'re currently subscribed to all updates.',
+            'my_subscriptions' => 'You\'re currently subscribed to the following updates.',
+        ],
+        'email' => [
             'subscribe'          => 'Langganan update email.',
             'subscribed'         => 'Anda berhasil terdaftar pada notifikasi email, mohon periksa email anda untuk mengkonfirmasi pendaftaran ini.',
             'verified'           => 'Pendaftaran newsletter anda berhasil dikonfirmasi. Terima kasih!',
+            'manage'             => 'Manage your subscription',
             'unsubscribe'        => 'Hapus saya dari update email.',
             'unsubscribed'       => 'Langganan email anda sudah dihentikan.',
             'failure'            => 'Ada yang salah dengan sistem langganan email.',
             'already-subscribed' => 'Cannot subscribe :email because they\'re already subscribed.',
             'verify'             => [
-                'text'           => "Mohon konfirmasi langganan email update status :app_name.\n:link\nTerima kasih,
-:app_name",
-                'html-preheader' => 'Mohon konfirmasi langganan email update status :app_name.',
-                'html'           => '<p>Mohon konfirmasi langganan email anda ke: app_name status update.</p> <p><a href=":link">: link</a></p> <p>Terima kasih,: app_name</p>',
+                'text'   => "Please confirm your email subscription to :app_name status updates.\n:link",
+                'html'   => '<p>Please confirm your email subscription to :app_name status updates.</p>',
+                'button' => 'Confirm Subscription',
             ],
             'maintenance' => [
-                'text'           => "Jadwal pemeliharaan baru sudah dibuat di :app_name.\nTerima kasih, :app_name",
-                'html-preheader' => 'Jadwal pemeliharaan baru sudah dibuat di :app_name.',
-                'html'           => '<p>Pemeliharaan baru telah dijadwalkan pada: app_name.</p>',
+                'subject' => '[Maintenance Scheduled] :name',
             ],
             'incident' => [
-                'text'           => "Ada insiden baru yang dilaporkan di :app_name.\n Terima kasih, :app_name",
-                'html-preheader' => 'Ada insiden baru yang dilaporkan di :app_name.',
-                'html'           => '<p>Ada insiden baru yang dilaporkan di :app_name.</p><p> Terima kasih, :app_name</p>',
+                'subject' => '[New Incident] :status: :name',
             ],
             'component' => [
-                'subject'        => 'Component Status Update',
-                'text'           => 'The component :component_name has seen a status change. The component is now at :component_human_status.\nThank you, :app_name',
-                'html-preheader' => 'Component Update from :app_name',
-                'html'           => '<p>The component :component_name has seen a status change. The component is now at :component_human_status.</p><p>Thank you, :app_name</p>',
-                'tooltip-title'  => 'Subscribe to notifications for :component_name.',
+                'subject'       => 'Component Status Update',
+                'text'          => 'The component :component_name has seen a status change. The component is now at :component_human_status.\nThank you, :app_name',
+                'html'          => '<p>The component :component_name has seen a status change. The component is now at :component_human_status.</p><p>Thank you, :app_name</p>',
+                'tooltip-title' => 'Subscribe to notifications for :component_name.',
             ],
         ],
     ],
@@ -102,7 +104,6 @@ return [
         'email' => [
             'invite' => [
                 'text'           => "Anda diundang dalam tim Halaman Status :app_name, untuk mendaftar silakan klik tautan berikut \n:link\nTerima kasih, :app_name",
-                'html-preheader' => 'Anda diundang dalam tim :app_name.',
                 'html'           => '<p>Anda diundang dalam tim Halaman Status :app_name, untuk mendaftar silakan klik tautan berikut. </p><p><a href=":link">:link</a></p><p>Terima kasih, :app_name</p>',
             ],
         ],
@@ -125,14 +126,16 @@ return [
     'modal' => [
         'close'     => 'Close',
         'subscribe' => [
-            'title'  => 'Subscribe to component updates?',
-            'body'   => 'Enter your email address to subscribe to updates for this component. If you\'re already subscribed, you\'ll receive emails for this component too.',
+            'title'  => 'Subscribe to component updates',
+            'body'   => 'Enter your email address to subscribe to updates for this component. If you\'re already subscribed, you\'ll already receive emails for this component.',
             'button' => 'Daftar',
         ],
     ],
 
     // Other
-    'powered_by'      => 'Halaman Status :app dibuat dengan <a href="https://cachethq.io">Cachet</a>.',
+    'home'            => 'Home',
+    'description'     => 'Stay up to date with the latest service updates from :app.',
+    'powered_by'      => 'Powered by <a href="https://cachethq.io" class="links">Cachet</a>.',
     'about_this_site' => 'Tentang situs ini',
     'rss-feed'        => 'RSS',
     'atom-feed'       => 'Atom',

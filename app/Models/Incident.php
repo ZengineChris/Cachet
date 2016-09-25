@@ -12,15 +12,18 @@
 namespace CachetHQ\Cachet\Models;
 
 use AltThree\Validator\ValidatingTrait;
+use CachetHQ\Cachet\Models\Traits\SearchableTrait;
+use CachetHQ\Cachet\Models\Traits\SortableTrait;
 use CachetHQ\Cachet\Presenters\IncidentPresenter;
 use Carbon\Carbon;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use McCool\LaravelAutoPresenter\HasPresenter;
 
 class Incident extends Model implements HasPresenter
 {
-    use SoftDeletes, ValidatingTrait;
+    use SearchableTrait, SoftDeletes, SortableTrait, ValidatingTrait;
 
     /**
      * The attributes that should be casted to native types.
@@ -63,13 +66,39 @@ class Incident extends Model implements HasPresenter
     ];
 
     /**
+     * The searchable fields.
+     *
+     * @var string[]
+     */
+    protected $searchable = [
+        'id',
+        'component_id',
+        'name',
+        'status',
+        'visible',
+    ];
+
+    /**
+     * The sortable fields.
+     *
+     * @var string[]
+     */
+    protected $sortable = [
+        'id',
+        'name',
+        'status',
+        'visible',
+        'message',
+    ];
+
+    /**
      * Finds all visible incidents.
      *
      * @param \Illuminate\Database\Eloquent\Builder $query
      *
      * @return \Illuminate\Database\Eloquent\Builder
      */
-    public function scopeVisible($query)
+    public function scopeVisible(Builder $query)
     {
         return $query->where('visible', 1);
     }
@@ -81,9 +110,9 @@ class Incident extends Model implements HasPresenter
      *
      * @return \Illuminate\Database\Eloquent\Builder
      */
-    public function scopeScheduled($query)
+    public function scopeScheduled(Builder $query)
     {
-        return $query->where('status', 0)->where('scheduled_at', '>=', Carbon::now());
+        return $query->where('status', 0)->where('scheduled_at', '>=', Carbon::now()->toDateTimeString());
     }
 
     /**
@@ -93,10 +122,12 @@ class Incident extends Model implements HasPresenter
      *
      * @return \Illuminate\Database\Eloquent\Builder
      */
-    public function scopeNotScheduled($query)
+    public function scopeNotScheduled(Builder $query)
     {
-        return $query->where(function ($query) {
-            return $query->whereNull('scheduled_at')->orWhere('scheduled_at', '<=', Carbon::now());
+        return $query->where('status', '>', 0)->orWhere(function ($query) {
+            $query->where('status', 0)->where(function ($query) {
+                $query->whereNull('scheduled_at')->orWhere('scheduled_at', '<=', Carbon::now()->toDateTimeString());
+            });
         });
     }
 

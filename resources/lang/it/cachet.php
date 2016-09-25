@@ -12,21 +12,24 @@
 return [
     // Components
     'components' => [
-        'status' => [
+        'last_updated' => 'Ultimo aggiornamento :timestamp',
+        'status'       => [
             1 => 'Operativo',
             2 => 'Problemi sulle prestazioni',
             3 => 'Disservizio parziale',
             4 => 'Interruzione del servizio',
         ],
+        'group' => [
+            'other' => 'Altri Componenti',
+        ],
     ],
 
     // Incidents
     'incidents' => [
-        'none'          => 'Nothing to report',
-        'past'          => 'Past Incidents',
-        'previous_week' => 'Previous Week',
-        'next_week'     => 'Next Week',
-        'none'          => 'Nothing to report',
+        'none'          => 'Nessun incidente segnalato',
+        'past'          => 'Problemi passati',
+        'previous_week' => 'Settimana Precedente',
+        'next_week'     => 'Prossima Settimana',
         'scheduled'     => 'Manutenzione programmata',
         'scheduled_at'  => ', programmata il :timestamp',
         'status'        => [
@@ -40,9 +43,9 @@ return [
 
     // Service Status
     'service' => [
-        'good'  => '[0,1] System operational|[2,Inf] All systems are operational',
-        'bad'   => '[0,1] The system is currently experiencing issues|[2,Inf] Some systems are experiencing issues',
-        'major' => '[0,1] The service experiencing a major outage|[2,Inf] Some systems are experiencing a major outage',
+        'good'  => '[0,1] Sistema operativo|[2,Inf] Tutti i sistemi sono operativi',
+        'bad'   => '[0,1] Il sistema al momento presenta problemi|[2,Inf] Alcuni sistemi presentano problemi',
+        'major' => '[0,1] Il servizio presenta presenta un grave problema|[2,Inf] Alcuni sistemi presentano un grave problema',
     ],
 
     'api' => [
@@ -53,46 +56,46 @@ return [
     // Metrics
     'metrics' => [
         'filter' => [
-            'last_hour' => 'Last Hour',
-            'hourly'    => 'Last 12 Hours',
-            'weekly'    => 'Week',
-            'monthly'   => 'Month',
+            'last_hour' => 'Ultima Ora',
+            'hourly'    => 'Ultime 12 Ore',
+            'weekly'    => 'Settimana',
+            'monthly'   => 'Mese',
         ],
     ],
 
     // Subscriber
     'subscriber' => [
-        'subscribe' => 'Subscribe to get the most recent updates',
+        'subscribe' => 'Iscriviti per ricevere gli aggiornamenti più recenti',
         'button'    => 'Iscriviti',
-        'email'     => [
+        'manage'    => [
+            'no_subscriptions' => 'Sei attualmente iscritto a tutti gli aggiornamenti.',
+            'my_subscriptions' => 'Sei attualmente iscritto ai seguenti suggerimenti.',
+        ],
+        'email' => [
             'subscribe'          => 'Iscriviti agli aggiornamenti via email.',
             'subscribed'         => 'Ti sei appena iscritto agli aggiornamenti email, controlla la tua casella per confermare la sottoscrizione',
             'verified'           => 'La tua iscrizione &egrave; stata confermata. Grazie!',
-            'unsubscribe'        => 'Unsubscribe from email updates.',
+            'manage'             => 'Gestisci la tua iscrizione',
+            'unsubscribe'        => 'Annulla l\'iscrizione agli aggiornamenti email.',
             'unsubscribed'       => 'La tua iscrizione &egrave; stata rimossa.',
             'failure'            => 'Qualcosa è andato storto con l\'iscrizione.',
-            'already-subscribed' => 'Cannot subscribe :email because they\'re already subscribed.',
+            'already-subscribed' => 'Non è possibile iscrivere :email perchè risulta già iscritto.',
             'verify'             => [
-                'text'           => "Conferma la sottoscrizione email per gli aggiornamento di stato su :app_name \n:link\nGrazie, :app_name",
-                'html-preheader' => 'Conferma la sottoscrizione email per gli aggiornamento di stato su :app_name',
-                'html'           => '<p>Please confirm your email subscription to :app_name status updates.</p><p><a href=":link">:link</a></p><p>Thank you, :app_name</p>',
+                'text'   => "Please confirm your email subscription to :app_name status updates.\n:link",
+                'html'   => '<p>Please confirm your email subscription to :app_name status updates.</p>',
+                'button' => 'Conferma iscrizione',
             ],
             'maintenance' => [
-                'text'           => "Una nuova manutenzione programmata &egrave; stata inserita su :app_name.\nGrazie, :app_name",
-                'html-preheader' => 'Una nuova manutenzione programmata &egrave; stata inserita su :app_name.',
-                'html'           => '<p>New maintenance has been scheduled on :app_name.</p>',
+                'subject' => '[Manutenzione programmata] :name',
             ],
             'incident' => [
-                'text'           => "Un nuovo incidente &egrave; stato segnalato su :app_name.\nGrazie, :app_name",
-                'html-preheader' => 'Un nuovo incidente &egrave; stato segnalato su :app_name.',
-                'html'           => '<p>Un nuovo incidente &egrave; stato segnalato su :app_name.</p><p>Grazie, :app_name</p>',
+                'subject' => '[Nuova segnalazione] :status: :name',
             ],
             'component' => [
-                'subject'        => 'Component Status Update',
-                'text'           => 'The component :component_name has seen a status change. The component is now at :component_human_status.\nThank you, :app_name',
-                'html-preheader' => 'Component Update from :app_name',
-                'html'           => '<p>The component :component_name has seen a status change. The component is now at :component_human_status.</p><p>Thank you, :app_name</p>',
-                'tooltip-title'  => 'Subscribe to notifications for :component_name.',
+                'subject'       => 'Aggiornamento di stato del componente',
+                'text'          => 'Lo stato del componente: nome_componente è cambiato. Il nuovo stato del componente è :component_human_status.\nGrazie,: app_name',
+                'html'          => '<p>Lo stato del componente: nome_componente è cambiato. Il nuovo stato del componente è :component_human_status.</p><p>Grazie, :app_name</p>',
+                'tooltip-title' => 'Iscriviti alle notifiche di :component_name.',
             ],
         ],
     ],
@@ -100,39 +103,40 @@ return [
     'users' => [
         'email' => [
             'invite' => [
-                'text'           => "You have been invited to the team :app_name status page, to sign up follow the next link.\n:link\nThank you, :app_name",
-                'html-preheader' => 'You have been invited to the team :app_name.',
-                'html'           => '<p>You have been invited to the team :app_name status page, to sign up follow the next link.</p><p><a href=":link">:link</a></p><p>Thank you, :app_name</p>',
+                'text'           => "Sei stato invitato nel team :app_name status page, per iscriverti segui il prossimo link.\n:link\nGrazie, :app_name",
+                'html'           => '<p>Sei stato invitato nel team :app_name status page, per iscriverti segui il prossimo link.</p><p><a href=":link">:link</a></p><p>Grazie, :app_name</p>',
             ],
         ],
     ],
 
     'signup' => [
-        'title'    => 'Sign Up',
+        'title'    => 'Registrati',
         'username' => 'Nome Utente',
         'email'    => 'Email',
         'password' => 'Password',
-        'success'  => 'Your account has been created.',
-        'failure'  => 'Something went wrong with the signup.',
+        'success'  => 'Il tuo account è stato creato.',
+        'failure'  => 'Qualcosa non ha funzionato durante la procedura d\'iscrizione.',
     ],
 
     'system' => [
-        'update' => 'There is a newer version of Cachet available. You can learn how to update <a href="https://docs.cachethq.io/docs/updating-cachet">here</a>!',
+        'update' => 'E\' disponibile una nuova versione di Cachet. Scopri come fare <a href="https://docs.cachethq.io/docs/updating-cachet">qui</a>!',
     ],
 
     // Modal
     'modal' => [
-        'close'     => 'Close',
+        'close'     => 'Chiudi',
         'subscribe' => [
-            'title'  => 'Subscribe to component updates?',
-            'body'   => 'Enter your email address to subscribe to updates for this component. If you\'re already subscribed, you\'ll receive emails for this component too.',
+            'title'  => 'Iscriviti agli aggiornamenti dei componenti',
+            'body'   => 'Inserisci il tuo indirizzo e-mail per iscriverti agli aggiornamenti di questo componente. Se sei già iscritto, riceverai già email relative a questo componente.',
             'button' => 'Iscriviti',
         ],
     ],
 
     // Other
-    'powered_by'      => ':app Status Page is powered by <a href="https://cachethq.io" class="links">Cachet</a>.',
-    'about_this_site' => 'About This Site',
+    'home'            => 'Home',
+    'description'     => 'Resta informato sugli ultimi aggiornamenti dei servizi di :app.',
+    'powered_by'      => 'Powered by <a href="https://cachethq.io" class="links"> Cachet</a>.',
+    'about_this_site' => 'Informazioni sul sito',
     'rss-feed'        => 'RSS',
     'atom-feed'       => 'Atom',
     'feed'            => 'Status Feed',

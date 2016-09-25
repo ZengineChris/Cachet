@@ -32,12 +32,22 @@ class ComponentController extends AbstractApiController
     public function getComponents()
     {
         if (app(Guard::class)->check()) {
-            $components = Component::whereRaw('1 = 1');
+            $components = Component::query();
         } else {
             $components = Component::enabled();
         }
 
-        return $this->paginator($components->paginate(Binput::get('per_page', 20)), Request::instance());
+        $components->search(Binput::except(['sort', 'order', 'per_page']));
+
+        if ($sortBy = Binput::get('sort')) {
+            $direction = Binput::has('order') && Binput::get('order') == 'desc';
+
+            $components->sort($sortBy, $direction);
+        }
+
+        $components = $components->paginate(Binput::get('per_page', 20));
+
+        return $this->paginator($components, Request::instance());
     }
 
     /**

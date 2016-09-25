@@ -30,6 +30,7 @@ class Subscriber extends Model implements HasPresenter
         'email'       => 'string',
         'verify_code' => 'string',
         'verified_at' => 'date',
+        'global'      => 'bool',
     ];
 
     /**
@@ -47,6 +48,13 @@ class Subscriber extends Model implements HasPresenter
     public $rules = [
         'email' => 'required|email',
     ];
+
+    /**
+     * The relations to eager load on every query.
+     *
+     * @var string[]
+     */
+    protected $with = ['subscriptions'];
 
     /**
      * Overrides the models boot method.
@@ -67,7 +75,7 @@ class Subscriber extends Model implements HasPresenter
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function subcriptions()
+    public function subscriptions()
     {
         return $this->hasMany(Subscription::class);
     }
@@ -82,6 +90,33 @@ class Subscriber extends Model implements HasPresenter
     public function scopeIsVerified(Builder $query)
     {
         return $query->whereNotNull('verified_at');
+    }
+
+    /**
+     * Scope global subscribers.
+     *
+     * @param \Illuminate\Database\Eloquent\Builder $query
+     *
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
+    public function scopeIsGlobal(Builder $query)
+    {
+        return $query->where('global', true);
+    }
+
+    /**
+     * Finds all verified subscriptions for a component.
+     *
+     * @param \Illuminate\Database\Eloquent\Builder $query
+     * @param int                                   $component_id
+     *
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
+    public function scopeForComponent(Builder $query, $component_id)
+    {
+        return $query->select('subscribers.*')
+            ->join('subscriptions', 'subscribers.id', '=', 'subscriptions.subscriber_id')
+            ->where('subscriptions.component_id', $component_id);
     }
 
     /**

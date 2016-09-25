@@ -160,15 +160,17 @@ return [
         /*
          * Packages Service Providers...
          */
+        'AltThree\Badger\BadgerServiceProvider',
         'AltThree\Emoji\EmojiServiceProvider',
+        'BackupManager\Laravel\Laravel5ServiceProvider',
         'Barryvdh\Cors\ServiceProvider',
+        'Fedeisas\LaravelMailCssInliner\LaravelMailCssInlinerServiceProvider',
         'Fideloper\Proxy\TrustedProxyServiceProvider',
         'GrahamCampbell\Binput\BinputServiceProvider',
         'GrahamCampbell\Exceptions\ExceptionsServiceProvider',
         'GrahamCampbell\Core\CoreServiceProvider',
         'GrahamCampbell\Markdown\MarkdownServiceProvider',
         'GrahamCampbell\Security\SecurityServiceProvider',
-        'GrahamCampbell\Throttle\ThrottleServiceProvider',
         'Jenssegers\Date\DateServiceProvider',
         'McCool\LaravelAutoPresenter\AutoPresenterServiceProvider',
         'PragmaRX\Google2FA\Vendor\Laravel\ServiceProvider',
@@ -180,9 +182,10 @@ return [
          */
         'CachetHQ\Cachet\Foundation\Providers\AppServiceProvider',
         'CachetHQ\Cachet\Foundation\Providers\ComposerServiceProvider',
+        'CachetHQ\Cachet\Foundation\Providers\ConsoleServiceProvider',
         'CachetHQ\Cachet\Foundation\Providers\ConfigServiceProvider',
+        'CachetHQ\Cachet\Foundation\Providers\IntegrationServiceProvider',
         'CachetHQ\Cachet\Foundation\Providers\EventServiceProvider',
-        'CachetHQ\Cachet\Foundation\Providers\GitHubServiceProvider',
         'CachetHQ\Cachet\Foundation\Providers\RepositoryServiceProvider',
         'CachetHQ\Cachet\Foundation\Providers\RouteServiceProvider',
 

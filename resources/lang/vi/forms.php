@@ -27,13 +27,14 @@ return [
 
     // Login form fields
     'login' => [
-        'login'         => 'Username or Email',
+        'login'         => 'Tên đăng nhập hoặc Email',
         'email'         => 'Email',
         'password'      => 'Mật khẩu',
         '2fauth'        => 'Mã số xác thực',
         'invalid'       => 'Invalid username or password',
         'invalid-token' => 'Token không hợp lệ',
         'cookies'       => 'Bạn phải bật cookie để đăng nhập.',
+        'rate-limit'    => 'Rate limit exceeded.',
     ],
 
     // Incidents form fields
@@ -45,7 +46,7 @@ return [
         'message-help'       => 'Bạn cũng có thể sử dụng Markdown.',
         'scheduled_at'       => 'Khi nào bảo trì định kỳ?',
         'incident_time'      => 'When did this incident occur?',
-        'notify_subscribers' => 'Notify Subscribers?',
+        'notify_subscribers' => 'Notify subscribers?',
         'visibility'         => 'Incident Visibility',
         'public'             => 'Viewable by public',
         'logged_in_only'     => 'Only visible to logged in users',
@@ -68,8 +69,11 @@ return [
         'enabled'     => 'Component enabled?',
 
         'groups' => [
-            'name'      => 'Tên',
-            'collapsed' => 'Collapse the group by default?',
+            'name'               => 'Tên',
+            'collapsing'         => 'Choose visibility of the group',
+            'visible'            => 'Always expanded',
+            'collapsed'          => 'Collapse the group by default',
+            'collapsed_incident' => 'Collapse the group, but expand if there are issues',
         ],
     ],
 
@@ -81,11 +85,12 @@ return [
         'description-help' => 'Bạn cũng có thể sử dụng Markdown.',
         'display-chart'    => 'Hiển thị các biểu đồ trên trang trạng thái?',
         'default-value'    => 'Giá trị mặc định',
-        'calc_type'        => 'Calculation of Metrics',
+        'calc_type'        => 'Calculation of metrics',
         'type_sum'         => 'Tổng hợp',
         'type_avg'         => 'Trung bình',
         'places'           => 'Chữ số thập phân',
-        'default_view'     => 'Default View',
+        'default_view'     => 'Default view',
+        'threshold'        => 'How many minutes of threshold between metric points?',
 
         'points' => [
             'value' => 'Giá trị',
@@ -96,14 +101,15 @@ return [
     'settings' => [
         /// Application setup
         'app-setup' => [
-            'site-name'              => 'Tên trang web',
+            'site-name'              => 'Tến site',
             'site-url'               => 'URL trang web',
             'display-graphs'         => 'Hiển thị các biểu đồ trên trang trạng thái?',
             'about-this-page'        => 'Về trang này',
             'days-of-incidents'      => 'Sự cố này sẽ hiển thị mấy ngày ?',
-            'banner'                 => 'Ảnh banner',
+            'banner'                 => 'Banner Image',
             'banner-help'            => 'Bạn nên upload ảnh có chiều rộng lớn hơn 930px',
             'subscribers'            => 'Allow people to signup to email notifications?',
+            'automatic_localization' => 'Automatically localise your status page to your visitor\'s language?',
         ],
         'analytics' => [
             'analytics_google'       => 'Mã Google Analytics',
@@ -115,29 +121,29 @@ return [
             'site-timezone'          => 'Múi giờ',
             'site-locale'            => 'Ngôn ngữ',
             'date-format'            => 'Định dạng ngày',
-            'incident-date-format'   => 'Incident Timestamp Format',
+            'incident-date-format'   => 'Incident timestamp format',
         ],
         'security' => [
-            'allowed-domains'      => 'Allowed Domains',
+            'allowed-domains'      => 'Allowed domains',
             'allowed-domains-help' => 'Ngăn cách bằng dấu phẩy. Những domain dưới đây được cho phép một cách tự động.',
         ],
         'stylesheet' => [
-            'custom-css' => 'Tùy chỉnh Stylesheet',
+            'custom-css' => 'Custom Stylesheet',
         ],
         'theme' => [
-            'background-color'        => 'Màu nền',
-            'background-fills'        => 'Background Fills (Components, Incidents, Footer)',
-            'banner-background-color' => 'Banner Background Color',
-            'banner-padding'          => 'Banner Padding',
+            'background-color'        => 'Background Color',
+            'background-fills'        => 'Background fills (components, incidents, footer)',
+            'banner-background-color' => 'Banner background color',
+            'banner-padding'          => 'Banner padding',
             'fullwidth-banner'        => 'Enable fullwidth banner?',
-            'text-color'              => 'Màu chữ',
+            'text-color'              => 'Text Color',
             'dashboard-login'         => 'Show dashboard button in the footer?',
-            'reds'                    => 'Red (Used for errors)',
-            'blues'                   => 'Blue (Used for information)',
-            'greens'                  => 'Green (Used for success)',
-            'yellows'                 => 'Yellow (Used for alerts)',
-            'oranges'                 => 'Orange (Used for notices)',
-            'metrics'                 => 'Metrics Fill',
+            'reds'                    => 'Red (used for errors)',
+            'blues'                   => 'Blue (used for information)',
+            'greens'                  => 'Green (used for success)',
+            'yellows'                 => 'Yellow (used for alerts)',
+            'oranges'                 => 'Orange (used for notices)',
+            'metrics'                 => 'Metrics fill',
             'links'                   => 'Liên kết',
         ],
     ],

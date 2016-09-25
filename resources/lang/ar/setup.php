@@ -10,14 +10,14 @@
  */
 
 return [
-    'setup'             => 'Setup',
-    'title'             => 'Setup Cachet',
-    'service_details'   => 'Service Details',
-    'env_setup'         => 'Environment Setup',
+    'setup'             => 'تنصيب',
+    'title'             => 'إعداد Cachet',
+    'service_details'   => 'تفاصيل الخدمة',
+    'env_setup'         => 'إعداد البيئة',
     'status_page_setup' => 'Status Page Setup',
     'show_support'      => 'Show support for Cachet?',
-    'admin_account'     => 'Administrator Account',
-    'complete_setup'    => 'Complete Setup',
-    'completed'         => 'Cachet has been configured successfully!',
-    'finish_setup'      => 'Go to dashboard',
+    'admin_account'     => 'حساب المدير',
+    'complete_setup'    => 'إكمال الإعداد',
+    'completed'         => 'تم إعداد Cachet بنجاح!',
+    'finish_setup'      => 'انتقل إلى لوحة التحكم',
 ];

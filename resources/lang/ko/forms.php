@@ -34,6 +34,7 @@ return [
         'invalid'       => 'Invalid username or password',
         'invalid-token' => '잘못된 토큰n',
         'cookies'       => '로그인 하려면 쿠키를 활성화 해야 합니다.',
+        'rate-limit'    => 'Rate limit exceeded.',
     ],
 
     // Incidents form fields
@@ -46,7 +47,7 @@ return [
         'scheduled_at'       => '언제 작업을 예약하시겠습니까?',
         'incident_time'      => '이 문제는 언제 발생 했습니까??',
         'notify_subscribers' => '구독자에게 알림',
-        'visibility'         => '공개 설정',
+        'visibility'         => 'Incident Visibility',
         'public'             => '전체 공개',
         'logged_in_only'     => '로그인한 사용자만 볼 수 있음',
         'templates'          => [
@@ -68,8 +69,11 @@ return [
         'enabled'     => 'Component enabled?',
 
         'groups' => [
-            'name'      => '이름',
-            'collapsed' => 'Collapse the group by default?',
+            'name'               => '이름',
+            'collapsing'         => 'Choose visibility of the group',
+            'visible'            => 'Always expanded',
+            'collapsed'          => 'Collapse the group by default',
+            'collapsed_incident' => 'Collapse the group, but expand if there are issues',
         ],
     ],
 
@@ -84,8 +88,9 @@ return [
         'calc_type'        => '통계 계산',
         'type_sum'         => '합계',
         'type_avg'         => '평균',
-        'places'           => 'Decimal Places',
-        'default_view'     => 'Default View',
+        'places'           => 'Decimal places',
+        'default_view'     => 'Default view',
+        'threshold'        => 'How many minutes of threshold between metric points?',
 
         'points' => [
             'value' => '값',
@@ -101,9 +106,10 @@ return [
             'display-graphs'         => '상태 페이지에 그래프 보이기',
             'about-this-page'        => '이 페이지에 대하여',
             'days-of-incidents'      => '몇 일 동안 사건을 표시하시겠습니까?',
-            'banner'                 => '배너 이미지',
+            'banner'                 => 'Banner Image',
             'banner-help'            => '가로가 930 픽셀보다 작은 이미지를 업로드 하는 것을 권장합니다.',
             'subscribers'            => '이메일 알림을 받기 위한 회원가입 허용',
+            'automatic_localization' => 'Automatically localise your status page to your visitor\'s language?',
         ],
         'analytics' => [
             'analytics_google'       => 'Google Analytics 코드',
@@ -122,22 +128,22 @@ return [
             'allowed-domains-help' => '쉼표로 구분. 위에 설정된 도메인은 기본적으로 자동 허용 됩니다.',
         ],
         'stylesheet' => [
-            'custom-css' => '사용자 정의 스타일시트',
+            'custom-css' => 'Custom Stylesheet',
         ],
         'theme' => [
-            'background-color'        => '배경색',
-            'background-fills'        => 'Background Fills (Components, Incidents, Footer)',
+            'background-color'        => 'Background Color',
+            'background-fills'        => 'Background fills (components, incidents, footer)',
             'banner-background-color' => 'Banner Background Color',
             'banner-padding'          => 'Banner Padding',
             'fullwidth-banner'        => 'Enable fullwidth banner?',
-            'text-color'              => '글자색',
+            'text-color'              => 'Text Color',
             'dashboard-login'         => 'Show dashboard button in the footer?',
             'reds'                    => '빨강 (에러에 사용됨)',
             'blues'                   => '파랑 (정보에 사용됨)',
             'greens'                  => '초록 (성공에 사용됨)',
             'yellows'                 => '노랑 (알림에 사용됨)',
             'oranges'                 => '주황 (공지에 사용됨)',
-            'metrics'                 => 'Metrics Fill',
+            'metrics'                 => 'Metrics fill',
             'links'                   => '링크',
         ],
     ],

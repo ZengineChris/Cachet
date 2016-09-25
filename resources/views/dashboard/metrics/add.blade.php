@@ -3,10 +3,10 @@
 @section('content')
     <div class="header">
         <div class="sidebar-toggler visible-xs">
-            <i class="icon ion-navicon"></i>
+            <i class="ion ion-navicon"></i>
         </div>
         <span class="uppercase">
-            <i class="icon ion-stats-bars"></i> {{ trans('dashboard.metrics.metrics') }}
+            <i class="ion ion-ios-pie-outline"></i> {{ trans('dashboard.metrics.metrics') }}
         </span>
         > <small>{{ trans('dashboard.metrics.add.title') }}</small>
     </div>
@@ -54,6 +54,10 @@
                         <div class="form-group">
                             <label for="metric-places">{{ trans('forms.metrics.places') }}</label>
                             <input type="number" min="0" max="4" class="form-control" name="metric[places]" id="metric-places" required value="{{ Binput::old('metric.places') }}">
+                        </div>
+                        <div class="form-group">
+                            <label for="metric-places">{{ trans('forms.metrics.threshold') }}</label>
+                            <input type="number" min="0" max="100" class="form-control" name="metric[threshold]" id="metric-threshold" required value="{{ Binput::old('metric.threshold') }}">
                         </div>
                         <div class="checkbox">
                             <label>

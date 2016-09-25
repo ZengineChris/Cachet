@@ -20,6 +20,13 @@ use Illuminate\Database\QueryException;
 use Illuminate\Support\Facades\Request;
 use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 
+/**
+ * This is the component group controller.
+ *
+ * @author James Brooks <james@alt-three.com>
+ * @author Graham Campbell <graham@alt-three.com>
+ * @author Joe Cohen <joe@alt-three.com>
+ */
 class ComponentGroupController extends AbstractApiController
 {
     /**
@@ -29,7 +36,17 @@ class ComponentGroupController extends AbstractApiController
      */
     public function getGroups()
     {
-        $groups = ComponentGroup::paginate(Binput::get('per_page', 20));
+        $groups = ComponentGroup::query();
+
+        $groups->search(Binput::except(['sort', 'order', 'per_page']));
+
+        if ($sortBy = Binput::get('sort')) {
+            $direction = Binput::has('order') && Binput::get('order') == 'desc';
+
+            $groups->sort($sortBy, $direction);
+        }
+
+        $groups = $groups->paginate(Binput::get('per_page', 20));
 
         return $this->paginator($groups, Request::instance());
     }
@@ -57,7 +74,7 @@ class ComponentGroupController extends AbstractApiController
             $group = dispatch(new AddComponentGroupCommand(
                 Binput::get('name'),
                 Binput::get('order', 0),
-                Binput::get('collapsed')
+                Binput::get('collapsed', 0)
             ));
         } catch (QueryException $e) {
             throw new BadRequestHttpException();
@@ -79,7 +96,7 @@ class ComponentGroupController extends AbstractApiController
             $group = dispatch(new UpdateComponentGroupCommand(
                 $group,
                 Binput::get('name'),
-                Binput::get('order', 0),
+                Binput::get('order'),
                 Binput::get('collapsed')
             ));
         } catch (QueryException $e) {

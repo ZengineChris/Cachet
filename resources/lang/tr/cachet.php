@@ -12,21 +12,24 @@
 return [
     // Components
     'components' => [
-        'status' => [
+        'last_updated' => 'Son Güncelleme: zaman tipi',
+        'status'       => [
             1 => 'Çalışıyor',
-            2 => 'Performans Sorunları',
+            2 => 'Performans Problemleri',
             3 => 'Kısmi Kesinti',
             4 => 'Ana Kesinti',
+        ],
+        'group' => [
+            'other' => 'Diğer Bileşenler',
         ],
     ],
 
     // Incidents
     'incidents' => [
-        'none'          => 'Nothing to report',
-        'past'          => 'Past Incidents',
-        'previous_week' => 'Previous Week',
-        'next_week'     => 'Next Week',
-        'none'          => 'Nothing to report',
+        'none'          => 'Hiçbir olay raporlanmadı',
+        'past'          => 'Geçmiş Olaylar',
+        'previous_week' => 'Geçen Hafta',
+        'next_week'     => 'Gelecek Hafta',
         'scheduled'     => 'Zamanlanmış bakım',
         'scheduled_at'  => ',zamanlanmış :zamandilimi',
         'status'        => [
@@ -40,9 +43,9 @@ return [
 
     // Service Status
     'service' => [
-        'good'  => '[0,1] System operational|[2,Inf] All systems are operational',
-        'bad'   => '[0,1] The system is currently experiencing issues|[2,Inf] Some systems are experiencing issues',
-        'major' => '[0,1] The service experiencing a major outage|[2,Inf] Some systems are experiencing a major outage',
+        'good'  => '[0,1] Sistem çalışır durumda| [2, Inf] Tüm sistemler çalışır durumda',
+        'bad'   => '[0,1] Sistemde şu anda sorunlar yaşanıyor [2, Inf] Bazı sistemlerde sorunlar yaşanıyor',
+        'major' => '[0,1] Bu serviste büyük bir kesinti yaşıyoruz [2, Inf] Bazı sistemlerde büyük bir kesintisi yaşıyoruz',
     ],
 
     'api' => [
@@ -53,46 +56,46 @@ return [
     // Metrics
     'metrics' => [
         'filter' => [
-            'last_hour' => 'Last Hour',
-            'hourly'    => 'Last 12 Hours',
-            'weekly'    => 'Week',
-            'monthly'   => 'Month',
+            'last_hour' => 'Son 1 saat',
+            'hourly'    => 'Son 12 saat',
+            'weekly'    => 'Hafta',
+            'monthly'   => 'Ay',
         ],
     ],
 
     // Subscriber
     'subscriber' => [
-        'subscribe' => 'Subscribe to get the most recent updates',
+        'subscribe' => 'En son güncelleştirmeleri almak için abone olun',
         'button'    => 'Abone Ol',
-        'email'     => [
+        'manage'    => [
+            'no_subscriptions' => 'Şu anda tüm güncellemeleri abone oldunuz.',
+            'my_subscriptions' => 'You\'re currently subscribed to the following updates.',
+        ],
+        'email' => [
             'subscribe'          => 'Güncellemeler için abone ol.',
             'subscribed'         => 'Bir email bildirimi almış olmalısın, lütfen aboneliğini onaylamak için kontrol et.',
             'verified'           => 'E mail aboneliğin kabul edildi. Teşekkürler!',
-            'unsubscribe'        => 'Unsubscribe from email updates.',
+            'manage'             => 'Manage your subscription',
+            'unsubscribe'        => 'E-posta aboneliğinden çık.',
             'unsubscribed'       => 'Email aboneliğin iptal edildi.',
             'failure'            => 'Bazı şeyler yanlış gitti.',
             'already-subscribed' => 'Cannot subscribe :email because they\'re already subscribed.',
             'verify'             => [
-                'text'           => "Lütfen email aboneliğinizi onaylayın :app_name Durum Güncellemesi.\n:link\nTeşekkürler",
-                'html-preheader' => 'Lütfen email aboneliğinizi :app_name için onaylayın.',
-                'html'           => '<p>Lütfen email aboneliğinizi onaylayın :app_name Durum güncellemesi.</p><p><a href=":link">:link</a></p><p>Thank you, :app_name</p>',
+                'text'   => "Please confirm your email subscription to :app_name status updates.\n:link",
+                'html'   => '<p>Please confirm your email subscription to :app_name status updates.</p>',
+                'button' => 'Confirm Subscription',
             ],
             'maintenance' => [
-                'text'           => "New maintenance has been scheduled on :app_name.\nThank you, :app_name",
-                'html-preheader' => 'New maintenance has been scheduled on :app_name.',
-                'html'           => '<p>New maintenance has been scheduled on :app_name.</p>',
+                'subject' => '[Maintenance Scheduled] :name',
             ],
             'incident' => [
-                'text'           => "New incident has been reported on :app_name.\nThank you, :app_name",
-                'html-preheader' => 'New incident has been reported on :app_name.',
-                'html'           => '<p>New incident has been reported on :app_name.</p><p>Thank you, :app_name</p>',
+                'subject' => '[New Incident] :status: :name',
             ],
             'component' => [
-                'subject'        => 'Component Status Update',
-                'text'           => 'The component :component_name has seen a status change. The component is now at :component_human_status.\nThank you, :app_name',
-                'html-preheader' => 'Component Update from :app_name',
-                'html'           => '<p>The component :component_name has seen a status change. The component is now at :component_human_status.</p><p>Thank you, :app_name</p>',
-                'tooltip-title'  => 'Subscribe to notifications for :component_name.',
+                'subject'       => 'Component Status Update',
+                'text'          => 'The component :component_name has seen a status change. The component is now at :component_human_status.\nThank you, :app_name',
+                'html'          => '<p>The component :component_name has seen a status change. The component is now at :component_human_status.</p><p>Thank you, :app_name</p>',
+                'tooltip-title' => 'Subscribe to notifications for :component_name.',
             ],
         ],
     ],
@@ -101,19 +104,18 @@ return [
         'email' => [
             'invite' => [
                 'text'           => "You have been invited to the team :app_name status page, to sign up follow the next link.\n:link\nThank you, :app_name",
-                'html-preheader' => 'You have been invited to the team :app_name.',
                 'html'           => '<p>You have been invited to the team :app_name status page, to sign up follow the next link.</p><p><a href=":link">:link</a></p><p>Thank you, :app_name</p>',
             ],
         ],
     ],
 
     'signup' => [
-        'title'    => 'Sign Up',
-        'username' => 'Username',
+        'title'    => 'Kayıt Ol',
+        'username' => 'Kullanıcı adı',
         'email'    => 'E-posta',
         'password' => 'Parola',
-        'success'  => 'Your account has been created.',
-        'failure'  => 'Something went wrong with the signup.',
+        'success'  => 'Hesabınız oluşturuldu.',
+        'failure'  => 'Kayıt esnasında bir sorun oluştu.',
     ],
 
     'system' => [
@@ -122,17 +124,19 @@ return [
 
     // Modal
     'modal' => [
-        'close'     => 'Close',
+        'close'     => 'Kapat',
         'subscribe' => [
-            'title'  => 'Subscribe to component updates?',
-            'body'   => 'Enter your email address to subscribe to updates for this component. If you\'re already subscribed, you\'ll receive emails for this component too.',
+            'title'  => 'Subscribe to component updates',
+            'body'   => 'Enter your email address to subscribe to updates for this component. If you\'re already subscribed, you\'ll already receive emails for this component.',
             'button' => 'Abone Ol',
         ],
     ],
 
     // Other
-    'powered_by'      => ':app Status Page is powered by <a href="https://cachethq.io" class="links">Cachet</a>.',
-    'about_this_site' => 'About This Site',
+    'home'            => 'Ana Sayfa',
+    'description'     => 'Stay up to date with the latest service updates from :app.',
+    'powered_by'      => 'Powered by <a href="https://cachethq.io" class="links">Cachet</a>.',
+    'about_this_site' => 'Bu Site hakkında',
     'rss-feed'        => 'RSS',
     'atom-feed'       => 'Atom',
     'feed'            => 'Status Feed',

@@ -15,65 +15,65 @@ return [
 
     // Incidents
     'incidents' => [
-        'title'                    => 'Инциденты и Плановые работы',
+        'title'                    => 'Инциденты и плановые работы',
         'incidents'                => 'Инциденты',
-        'logged'                   => '{0} Нет инцидентов, отличная работа!|У вас записан один инцидент.|Записано инцидентов: <strong>:count</strong>.',
+        'logged'                   => '{0} Нет инцидентов, отличная работа!|У вас зарегистрирован <strong>:count</strong> инцидент.|У вас зарегистрировано <strong>:count</strong> инцидента.|У вас зарегистрировано <strong>:count</strong> инцидентов.',
         'incident-create-template' => 'Создать шаблон',
         'incident-templates'       => 'Шаблоны инцидентов',
         'add'                      => [
-            'title'   => 'Add an Incident',
+            'title'   => 'Добавить инцидент',
             'success' => 'Инцидент добавлен.',
-            'failure' => 'Что-то пошло не так при добавлении инцидента.',
+            'failure' => 'При добавлении инцидента произошла ошибка, пожалуйста, попробуйте ещё раз.',
         ],
         'edit' => [
-            'title'   => 'Edit an Incident',
+            'title'   => 'Изменить инцидент',
             'success' => 'Инцидент обновлен.',
-            'failure' => 'Что-то пошло не так при изменении инцидента.',
+            'failure' => 'При редактировании инцидента произошла ошибка, пожалуйста, попробуйте ещё раз.',
         ],
         'delete' => [
-            'success' => 'The incident has been deleted and will not show on your status page.',
-            'failure' => 'The incident could not be deleted. Please try again.',
+            'success' => 'Инцидент удалён и больше не будет отображаться на статусной странице.',
+            'failure' => 'Инцидент не может быть уделён, пожалуйста, попробуйте ещё раз.',
         ],
 
         // Incident templates
         'templates' => [
             'title' => 'Шаблоны инцидентов',
             'add'   => [
-                'title'   => 'Create an Incident Template',
-                'message' => 'You should add an Incident Template.',
-                'success' => 'Шаблон создан.',
-                'failure' => 'Что-то пошло не так при создании шаблона.',
+                'title'   => 'Создать шаблон инцидента',
+                'message' => 'Необходимо добавить шаблон инцидента.',
+                'success' => 'Новый шаблон инцидента создан.',
+                'failure' => 'С шаблоном инцидента что-то не так.',
             ],
             'edit' => [
-                'title'   => 'Edit Template',
-                'success' => 'Шаблон был обновлен!',
-                'failure' => 'Что-то пошло не так при изменении шаблона',
+                'title'   => 'Изменить шаблон',
+                'success' => 'Шаблон инцидента обновлён.',
+                'failure' => 'Что-то пошло не так при изменении шаблона инцидента',
             ],
             'delete' => [
-                'success' => 'The tmplate has been deleted.',
-                'failure' => 'The template could not be deleted. Please try again.',
+                'success' => 'Шаблон инцидента удалён.',
+                'failure' => 'Шаблон инцидента не может быть уделён, пожалуйста, попробуйте ещё раз.',
             ],
         ],
     ],
 
     // Incident Maintenance
     'schedule' => [
-        'schedule'     => 'Плановое техническое обслуживание',
-        'logged'       => '{0} There are no schedules, good work.|You have logged one schedule.|You have reported <strong>:count</strong> schedules.',
-        'scheduled_at' => 'запланировано на :timestamp',
+        'schedule'     => 'Плановые работы',
+        'logged'       => '{0} Ни одного планового обслуживания не зарегистрировано.|У вас зарегистрировано <strong>:count</strong> плановое обслуживание.|У вас зарегистрировано <strong>:count</strong> плановых обслуживания.|У вас зарегистрировано <strong>:count</strong> плановых обслуживаний.',
+        'scheduled_at' => 'Запланировано на :timestamp',
         'add'          => [
-            'title'   => 'Добавить плановое техническое обслуживание',
+            'title'   => 'Добавить плановые работы',
             'success' => 'Плановые работы добавлены.',
-            'failure' => 'Что-то пошло не так при добавлении плановых работ.',
+            'failure' => 'Что-то пошло не так при добавлении плановых работ, пожалуйста, попробуйте ещё раз.',
         ],
         'edit' => [
-            'title'   => 'Изменить плановое техническое обслуживание',
+            'title'   => 'Изменить плановые работы',
             'success' => 'Плановые работы обновлены!',
-            'failure' => 'Что-то пошло не так при изменении плановых работ.',
+            'failure' => 'Что-то пошло не так при изменении плановых работ, пожалуйста, попробуйте ещё раз.',
         ],
         'delete' => [
-            'success' => 'Плановые работы удалены и не будут отображаться на вашей статусной странице.',
-            'failure' => 'Не удается удалить плановые работы. Попробуйте еще раз.',
+            'success' => 'Плановые работы удалены и больше не будут отображаться на статусной странице.',
+            'failure' => 'Плановые работы не могут быть уделены, пожалуйста, попробуйте ещё раз.',
         ],
     ],
 
@@ -81,40 +81,40 @@ return [
     'components' => [
         'components'         => 'Компоненты',
         'component_statuses' => ' Статусы компонентов',
-        'listed_group'       => 'Сгруппированные по :name',
+        'listed_group'       => 'В группе :name',
         'add'                => [
-            'title'   => 'Add a Component',
-            'message' => 'Вам следует добавить компонент.',
+            'title'   => 'Добавить компонент',
+            'message' => 'Необходимо добавить компонент.',
             'success' => 'Компонент создан.',
-            'failure' => 'Что-то пошло не так с компонентом.',
+            'failure' => 'Что-то не так с компонентом, пожалуйста, повторите ещё раз.',
         ],
         'edit' => [
-            'title'   => 'Edit a Component',
-            'success' => 'Обновление компонента.',
-            'failure' => 'Что-то пошло не так с компонентом.',
+            'title'   => 'Изменить компонент',
+            'success' => 'Компонент обновлён.',
+            'failure' => 'Что-то не так с компонентом, пожалуйста, повторите ещё раз.',
         ],
         'delete' => [
-            'success' => 'Component deleted.',
-            'failure' => 'The Component could not be deleted. Please try again.',
+            'success' => 'Компонент удалён!',
+            'failure' => 'Компонент не может быть удалён, пожалуйста, повторите ещё раз.',
         ],
 
         // Component groups
         'groups' => [
             'groups'        => 'Группа компонентов|Группы компонентов',
-            'no_components' => 'Вам следует добавить группу компонентов.',
+            'no_components' => 'Необходимо добавить группу компонентов.',
             'add'           => [
-                'title'   => 'Add a Component Group',
+                'title'   => 'Добавить группу компонентов',
                 'success' => 'Группа компонентов добавлена.',
-                'failure' => 'Что-то пошло не так при создании группы компонентов.',
+                'failure' => 'Что-то не так с группой компонентов, пожалуйста, повторите ещё раз.',
             ],
             'edit' => [
-                'title'   => 'Edit a Component Group',
+                'title'   => 'Изменить группу компонентов',
                 'success' => 'Группа компонентов обновлена.',
-                'failure' => 'Что-то пошло не так при изменении группы компонентов.',
+                'failure' => 'Что-то не так с группой компонентов, пожалуйста, повторите ещё раз.',
             ],
             'delete' => [
-                'success' => 'Component Group deleted.',
-                'failure' => 'The Component Group could not be deleted. Please try again.',
+                'success' => 'Группа компонентов удалена!',
+                'failure' => 'Группа компонентов не может быть удалена, пожалуйста, повторите ещё раз.',
             ],
         ],
     ],
@@ -123,36 +123,39 @@ return [
     'metrics' => [
         'metrics' => 'Метрики',
         'add'     => [
-            'title'   => 'Create a Metric',
-            'message' => 'You should add a Metric.',
+            'title'   => 'Создать метрику',
+            'message' => 'Необходимо добавить метрику.',
             'success' => 'Метрика создана.',
-            'failure' => 'Что-то пошло не так при создании метрики.',
+            'failure' => 'С метрикой что-то пошло не так, пожалуйста, повторите ещё раз.',
         ],
         'edit' => [
-            'title'   => 'Edit a Metric',
+            'title'   => 'Изменить метрику',
             'success' => 'Метрика обновлена.',
-            'failure' => 'Что-то пошло не так при изменении метрики.',
+            'failure' => 'С метрикой что-то пошло не так, пожалуйста, повторите ещё раз.',
         ],
         'delete' => [
-            'success' => 'The metric has been deleted and will not show on your status page.',
-            'failure' => 'The metric could not be deleted. Please try again.',
+            'success' => 'Метрика удалена и больше не будет отображаться на статусной странице.',
+            'failure' => 'Метрика не может быть удалена, пожалуйста, повторите ещё раз.',
         ],
     ],
     // Subscribers
     'subscribers' => [
-        'subscribers'  => 'Subscribers',
-        'description'  => 'Subscribers will receive email updates when incidents are created.',
-        'verified'     => 'Verified',
-        'not_verified' => 'Not Verified',
-        'add'          => [
-            'title'   => 'Add a New Subscriber',
-            'success' => 'Subscriber added.',
-            'failure' => 'Что-то пошло не так с компонентом.',
+        'subscribers'      => 'Подписчики',
+        'description'      => 'Подписчики будут получать уведомления по электронной почте при добавлении инцидентов или изменении статусов компонентов.',
+        'verified'         => 'Подтверждён',
+        'not_verified'     => 'Не подтверждён',
+        'subscriber'       => ':email, подписан :date',
+        'no_subscriptions' => 'Подписан на все обновления',
+        'add'              => [
+            'title'   => 'Добавить нового подписчика',
+            'success' => 'Подписчик добавлен!',
+            'failure' => 'Что-то пошло не так при добавлении подписчика, пожалуйста, повторите ещё раз.',
+            'help'    => 'Enter each subscriber on a new line.',
         ],
         'edit' => [
-            'title'   => 'Update Subscriber',
-            'success' => 'Subscriber updated.',
-            'failure' => 'Что-то пошло не так при изменении профиля.',
+            'title'   => 'Обновить подписчика',
+            'success' => 'Подписчик обновлён!',
+            'failure' => 'Что-то пошло не так при изменении подписчика, пожалуйста, попробуйте ещё раз.',
         ],
     ],
 
@@ -163,23 +166,23 @@ return [
         'profile'     => 'Профиль',
         'description' => 'Участники команды смогут добавлять и изменять компоненты и инциденты.',
         'add'         => [
-            'title'   => 'Add a New Team Member',
+            'title'   => 'Добавить нового участника команды',
             'success' => 'Участник команды добавлен.',
-            'failure' => 'Something went wrong with the user.',
+            'failure' => 'Участник команды не может быть добавлен, пожалуйста, повторите ещё раз.',
         ],
         'edit' => [
-            'title'   => 'Update Profile',
-            'success' => 'Данные профиля обновлены.',
-            'failure' => 'Что-то пошло не так при изменении профиля.',
+            'title'   => 'Обновить профиль',
+            'success' => 'Профиль обновлён.',
+            'failure' => 'Что-то пошло не так при обновлении профиля, пожалуйста, повторите ещё раз.',
         ],
         'delete' => [
-            'success' => 'User deleted.',
-            'failure' => 'Something went wrong when deleting this user.',
+            'success' => 'Участник команды удалён и больше не сможет получить доступ к панели управления!',
+            'failure' => 'Участник команды не может быть добавлен, пожалуйста, повторите ещё раз.',
         ],
         'invite' => [
-            'title'   => 'Invite a New Team Member',
-            'success' => 'The users invited.',
-            'failure' => 'Something went wrong with the invite.',
+            'title'   => 'Пригласить нового участника команды',
+            'success' => 'Приглашение отправлено',
+            'failure' => 'Не получается отправить приглашение, пожалуйста, попробуйте ещё раз.',
         ],
     ],
 
@@ -188,14 +191,19 @@ return [
         'settings'  => 'Настройки',
         'app-setup' => [
             'app-setup'   => 'Настройки приложения',
-            'images-only' => 'Могут быть загружены только изображения.',
+            'images-only' => 'Можно загружать только изображения.',
             'too-big'     => 'Загруженный вами файл слишком большой. Загрузите картинку меньше чем :size',
         ],
         'analytics' => [
-            'analytics' => 'Analytics',
+            'analytics' => 'Аналитика',
         ],
         'localization' => [
-            'localization' => 'Localization',
+            'localization' => 'Региональные настройки',
+        ],
+        'customization' => [
+            'customization' => 'Пользовательские настройки',
+            'header'        => 'Верхний колонтитул HTML',
+            'footer'        => 'Нижний колонтитул HTML',
         ],
         'security' => [
             'security'   => 'Безопасность',
@@ -209,7 +217,15 @@ return [
         ],
         'edit' => [
             'success' => 'Настройки сохранены.',
-            'failure' => 'Не удается сохранить настройки.',
+            'failure' => 'Не удаётся сохранить настройки.',
+        ],
+        'credits' => [
+            'credits'       => 'Разработчики',
+            'contributors'  => 'Разработчики',
+            'license'       => 'Cachet is a BSD-3-licensed open source project, released by <a href="https://alt-three.com/?utm_source=cachet&utm_medium=credits&utm_campaign=Cachet%20Credit%20Dashboard" target="_blank">Alt Three Services Limited</a>.',
+            'backers-title' => 'Партнеры & спонсоры',
+            'backers'       => 'If you\'d like to support future development, check out the <a href="https://patreon.com/jbrooksuk" target="_blank">Cachet Patreon</a> campaign.',
+            'thank-you'     => 'Thank you to each and every one of the :count contributors.',
         ],
     ],
 
@@ -223,7 +239,7 @@ return [
 
     // Sidebar footer
     'help'        => 'Помощь',
-    'status_page' => 'Страница статуса',
+    'status_page' => 'Статусная страница',
     'logout'      => 'Выйти',
 
     // Notifications
@@ -233,17 +249,25 @@ return [
         'whoops'        => 'Ой-ой!',
     ],
 
+    // Widgets
+    'widgets' => [
+        'support'          => 'Поддержать Cachet',
+        'support_subtitle' => 'Check out our <strong><a href="https://patreon.com/jbrooksuk" target="_blank">Patreon</a></strong> page!',
+        'news'             => 'Последние новости',
+        'news_subtitle'    => 'Проверить обновления',
+    ],
+
     // Welcome modal
     'welcome' => [
-        'welcome' => 'Welcome to your status page!',
+        'welcome' => 'Добро пожаловать на вашу статусную страницу!',
         'message' => 'Ваша статусная страница почти готова! Возможно, вы захотите настроить дополнительные параметры',
-        'close'   => 'Я хочу сразу перейти в панель управления',
+        'close'   => 'Закрыть и перейти к панели управления',
         'steps'   => [
             'component'  => 'Создание компонентов',
             'incident'   => 'Создание инцидентов',
             'customize'  => 'Настройка',
             'team'       => 'Добавление пользователей',
-            'api'        => 'Сгенерировать API токен',
+            'api'        => 'Создание API токена',
             'two-factor' => 'Двухфакторная аутентификация',
         ],
     ],

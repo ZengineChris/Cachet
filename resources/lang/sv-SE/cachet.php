@@ -12,21 +12,24 @@
 return [
     // Components
     'components' => [
-        'status' => [
+        'last_updated' => 'Last updated :timestamp',
+        'status'       => [
             1 => 'Fungerar',
             2 => 'Prestandaproblem',
             3 => 'Mindre avbrott',
             4 => 'Större avbrott',
         ],
+        'group' => [
+            'other' => 'Other Components',
+        ],
     ],
 
     // Incidents
     'incidents' => [
-        'none'          => 'Inga händelser har rapporterats.',
+        'none'          => 'Inga händelser har rapporterats',
         'past'          => 'Tidigare händelser',
         'previous_week' => 'Förra veckan',
         'next_week'     => 'Nästa vecka',
-        'none'          => 'Inga händelser har rapporterats.',
         'scheduled'     => 'Planerat underhåll',
         'scheduled_at'  => ', schemalagda: tidsstämpel',
         'status'        => [
@@ -40,9 +43,9 @@ return [
 
     // Service Status
     'service' => [
-        'good'  => '[0,1] System operational|[2,Inf] All systems are operational',
-        'bad'   => '[0,1] The system is currently experiencing issues|[2,Inf] Some systems are experiencing issues',
-        'major' => '[0,1] The service experiencing a major outage|[2,Inf] Some systems are experiencing a major outage',
+        'good'  => '[0,1] Systemet fungerar |[2,Inf] Alla system fungerar',
+        'bad'   => '[0,1] Systemet har för närvarande problem|[2,Inf] Vissa system har problem',
+        'major' => '[0,1] Stora störningar på tjänsten [2,Inf] Stora störningar på vissa system',
     ],
 
     'api' => [
@@ -53,7 +56,7 @@ return [
     // Metrics
     'metrics' => [
         'filter' => [
-            'last_hour' => 'Last Hour',
+            'last_hour' => 'Senaste timmen',
             'hourly'    => 'Senaste 12 timmarna',
             'weekly'    => 'Vecka',
             'monthly'   => 'Månad',
@@ -64,35 +67,35 @@ return [
     'subscriber' => [
         'subscribe' => 'Prenumerera för att få de senaste uppdateringarna',
         'button'    => 'Prenumerera',
-        'email'     => [
+        'manage'    => [
+            'no_subscriptions' => 'You\'re currently subscribed to all updates.',
+            'my_subscriptions' => 'You\'re currently subscribed to the following updates.',
+        ],
+        'email' => [
             'subscribe'          => 'Prenumerera på epost-uppdateringar.',
             'subscribed'         => 'Du har börjat prenumerera på e-postmeddelanden, vänligen kontrollera din e-post för att bekräfta din prenumeration.',
             'verified'           => 'Din epost-prenumeration har bekräftats. Tack!',
+            'manage'             => 'Manage your subscription',
             'unsubscribe'        => 'Avbeställ epost-uppdateringar.',
             'unsubscribed'       => 'Din epost-prenumeration har avbrutits.',
             'failure'            => 'Något blev fel med prenumerationen.',
-            'already-subscribed' => 'Cannot subscribe :email because they\'re already subscribed.',
+            'already-subscribed' => 'Kan inte skapa en prenumeration för :email eftersom den redan prenumererar.',
             'verify'             => [
-                'text'           => "Vänligen bekräfta din epost-prenumeration för: :app_name-statusuppdateringar.\n:link\nTack, :app_name",
-                'html-preheader' => 'Vänligen bekräfta din epost-prenumeration på statusuppdateringar för :app_name.',
-                'html'           => '<p>Vänligen bekräfta din epost-prenumeration på :app_names statusuppdateringar.</p> <p><a href=":link">: länk</a></p> <p>Tack, :app_name</p>',
+                'text'   => "Please confirm your email subscription to :app_name status updates.\n:link",
+                'html'   => '<p>Please confirm your email subscription to :app_name status updates.</p>',
+                'button' => 'Confirm Subscription',
             ],
             'maintenance' => [
-                'text'           => "Nytt underhåll har schemalagts för :app_name.\nTack du, :app_name",
-                'html-preheader' => 'Nytt underhåll har schemalagts för :app_name.',
-                'html'           => '<p>Nytt underhåll har schemalagts för :app_name.</p>',
+                'subject' => '[Maintenance Scheduled] :name',
             ],
             'incident' => [
-                'text'           => "Nya händelser har rapporterats hos :app_name.\nTack, :app_name",
-                'html-preheader' => 'Nya händelser har rapporterats hos :app_name.',
-                'html'           => '<p>Nya händelser har rapporterats hos :app_name.</p> <p>Tack, :app_name</p>',
+                'subject' => '[New Incident] :status: :name',
             ],
             'component' => [
-                'subject'        => 'Component Status Update',
-                'text'           => 'The component :component_name has seen a status change. The component is now at :component_human_status.\nThank you, :app_name',
-                'html-preheader' => 'Component Update from :app_name',
-                'html'           => '<p>The component :component_name has seen a status change. The component is now at :component_human_status.</p><p>Thank you, :app_name</p>',
-                'tooltip-title'  => 'Subscribe to notifications for :component_name.',
+                'subject'       => 'Komponentstatusuppdatering',
+                'text'          => 'Komponenten :component_name har fått en ny status. Komponenten har nu status :component_human_status.\nTack, :app_name',
+                'html'          => '<p>Komponenten :component_name har fått en ny status. Komponenten har nu status :component_human_status.</p><p>Tack, :app_name</p>',
+                'tooltip-title' => 'Prenumerera på uppdateringar för :component_name.',
             ],
         ],
     ],
@@ -101,7 +104,6 @@ return [
         'email' => [
             'invite' => [
                 'text'           => "Du har blivit inbjuden till teamet för :app_names statussida, registrera dig genom att trycka på länken.\n:link\nTack, :app_name",
-                'html-preheader' => 'Du har blivit inbjuden till teamet för :app_name.',
                 'html'           => '<p>Du har blivit inbjuden till teamet :app_names statussida. Registrera dig genom att trycka på <a href=":link"> den här länken</a></p> <p>Tack, :app_name</p>',
             ],
         ],
@@ -109,29 +111,31 @@ return [
 
     'signup' => [
         'title'    => 'Registrera dig',
-        'username' => 'Username',
-        'email'    => 'Email',
-        'password' => 'Password',
+        'username' => 'Användarnamn',
+        'email'    => 'E-post',
+        'password' => 'Lösenord',
         'success'  => 'Ditt konto har skapats.',
         'failure'  => 'Något gick fel med registreringen.',
     ],
 
     'system' => [
-        'update' => 'There is a newer version of Cachet available. You can learn how to update <a href="https://docs.cachethq.io/docs/updating-cachet">here</a>!',
+        'update' => 'Det finns en nyare version av Cachet tillgänglig. Du kan lära dig hur du uppdaterar <a href="https://docs.cachethq.io/docs/updating-cachet">här</a>!',
     ],
 
     // Modal
     'modal' => [
-        'close'     => 'Close',
+        'close'     => 'Stäng',
         'subscribe' => [
-            'title'  => 'Subscribe to component updates?',
-            'body'   => 'Enter your email address to subscribe to updates for this component. If you\'re already subscribed, you\'ll receive emails for this component too.',
+            'title'  => 'Prenumerera på komponentuppdateringar',
+            'body'   => 'Fyll i din epostadress för att prenumerera på uppdateringar för den här kompontenten. Om du redan prenumererar, får du redan epost om den här komponenten.',
             'button' => 'Prenumerera',
         ],
     ],
 
     // Other
-    'powered_by'      => ': app statussida drivs av <a href="https://cachethq.io" class="links"> Cachet</a>.',
+    'home'            => 'Home',
+    'description'     => 'Stay up to date with the latest service updates from :app.',
+    'powered_by'      => 'Powered by <a href="https://cachethq.io" class="links">Cachet</a>.',
     'about_this_site' => 'Om sidan',
     'rss-feed'        => 'RSS',
     'atom-feed'       => 'Atom',
